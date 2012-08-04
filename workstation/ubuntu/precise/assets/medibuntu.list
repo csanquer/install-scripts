@@ -1,0 +1,4 @@
+## Please report any bug on https://bugs.launchpad.net/medibuntu/
+#wget -q http://packages.medibuntu.org/medibuntu-key.gpg -O- | sudo apt-key add -
+deb http://packages.medibuntu.org/ precise free non-free
+# deb-src http://packages.medibuntu.org/ precise free non-free
