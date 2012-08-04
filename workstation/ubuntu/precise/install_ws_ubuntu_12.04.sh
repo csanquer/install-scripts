@@ -22,8 +22,10 @@ sudo apt-get -y install manpages-fr manpages-fr-dev manpages-fr-extra
 sudo apt-get -y install p7zip p7zip-full p7zip-rar lzma unrar rar
 sudo apt-get -y install filezilla ncftp lftp rsync subversion subversion-tools git git-core git-svn git-email git-gui git-doc mercurial mercurial-git hgsvn cvs cvs2svn screen meld tofrodos
 sudo apt-get -y install firefox firefox-gnome-support firefox-locale-fr chromium-browser thunderbird thunderbird-locale-fr thudnerbird-gnome-support
+sudo apt-get -y install openjdk-6-jdk icedtea-6-plugin openjdk-7-jdk icedtea-7-plugin
 sudo apt-get -y install libreoffice graphviz gimp
 sudo apt-get -y install gnome-shell gnome-panel ubuntu-tweak grub-customizer
+sudo apt-get -y install opera google-chrome-stable
 
 # requirements for mysql workbench
 sudo apt-get -y install mysql-common python-paramiko python-pysqlite2 libctemplate0 libgtkmm-2.4-1c2a
