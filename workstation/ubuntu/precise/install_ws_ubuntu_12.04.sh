@@ -10,11 +10,11 @@ wget -q http://packages.medibuntu.org/medibuntu-key.gpg -O- | sudo apt-key add -
 wget -q http://deb.opera.com/archive.key -O- | sudo apt-key add -
 
 #grub customizer
-sudo add-apt-repository ppa:danielrichter2007/grub-customizer
+sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
 #ubuntu tweak
-sudo add-apt-repository ppa:tualatrix/ppa
+sudo add-apt-repository -y ppa:tualatrix/ppa
 #gimp 2.8
-sudo add-apt-repository ppa:otto-kesselgulasch/gimp
+sudo add-apt-repository -y ppa:otto-kesselgulasch/gimp
 
 sudo apt-get -y update 
 sudo apt-get -y upgrade 
