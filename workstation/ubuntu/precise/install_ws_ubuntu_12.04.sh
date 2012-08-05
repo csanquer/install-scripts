@@ -1,8 +1,5 @@
 #!/bin/bash
 
-sudo apt-get autoremove gimp gimp-plugin-registry
-sudo add-apt-repository ppa:otto-kesselgulasch/gimp
-
 #new repositories and gpg keys
 sudo cp assets/* /etc/apt/sources.list.d/
 #google chrome
@@ -22,19 +19,22 @@ sudo add-apt-repository ppa:otto-kesselgulasch/gimp
 sudo apt-get -y update 
 sudo apt-get -y upgrade 
 
-sudo apt-get -y install openssh-server openssh-client openssh-blacklist openssh-blacklist-extra nano openssl openssl-blacklist openssl-blacklist-extra bash-completion zsh zsh-doc terminator vim vim-doc emacs vim-gnome
-sudo apt-get -y install gparted tree mc ttf-inconsolata ack-grep kdesdk-scripts nautilus-opent-terminal cups-pdf gedit-plugins gedit-developer-plugins 
+sudo apt-get -y install openssh-server openssh-client openssh-blacklist openssh-blacklist-extra nano kate openssl openssl-blacklist openssl-blacklist-extra bash-completion zsh zsh-doc terminator vim vim-doc emacs vim-gnome
+sudo apt-get -y install gparted tree mc ttf-inconsolata ack-grep kdesdk-scripts nautilus-open-terminal cups-pdf gedit-plugins gedit-developer-plugins 
 sudo apt-get -y install samba samba-doc samba-tools
 sudo apt-get -y install manpages-fr manpages-fr-dev manpages-fr-extra build-essential bison
 sudo apt-get -y install p7zip p7zip-full p7zip-rar lzma unrar rar
 sudo apt-get -y install filezilla ncftp lftp rsync subversion subversion-tools git git-cola git-core git-svn git-email git-gui git-doc mercurial mercurial-git hgsvn cvs cvs2svn screen tmux kdiff3 meld tofrodos diffutils colordiff patch dos2unix
 sudo apt-get -y install firefox firefox-gnome-support firefox-locale-fr chromium-browser chromium-browser-l10n chromium-codecs-ffmpeg thunderbird thunderbird-locale-fr thunderbird-gnome-support
 sudo apt-get -y install openjdk-6-jdk icedtea-6-plugin openjdk-7-jdk icedtea-7-plugin
-sudo apt-get -y autoremove gimp gimp-plugin-registry
+#sudo apt-get -y autoremove gimp gimp-plugin-registry
 sudo apt-get -y install libreoffice graphviz gimp gnucash keepassx keepass2 keepass2-doc ooo-thumbnailer pidgin
 sudo apt-get -y install clamav clamav-freshclam
 sudo apt-get -y install gnome-shell gnome-panel ubuntu-tweak grub-customizer compizconfig-settings-manager compiz-plugins-extra ubuntu-restricted-extras
 sudo apt-get -y install opera google-chrome-stable
+
+# requirements for official skype 4
+sudo apt-get -y install libqt4-core et libqt4-dbus
 
 # requirements for mysql workbench
 sudo apt-get -y install mysql-common python-paramiko python-pysqlite2 libctemplate0 libgtkmm-2.4-1c2a
