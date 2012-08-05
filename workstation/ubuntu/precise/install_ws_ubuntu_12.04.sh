@@ -24,7 +24,7 @@ sudo apt-get -y install gparted tree mc ttf-inconsolata ack-grep kdesdk-scripts 
 sudo apt-get -y install samba samba-doc samba-tools
 sudo apt-get -y install manpages-fr manpages-fr-dev manpages-fr-extra build-essential bison
 sudo apt-get -y install p7zip p7zip-full p7zip-rar lzma unrar rar
-sudo apt-get -y install filezilla ncftp lftp rsync subversion subversion-tools git git-cola git-core git-svn git-email git-gui git-doc mercurial mercurial-git hgsvn cvs cvs2svn screen tmux kdiff3 meld tofrodos diffutils colordiff patch dos2unix
+sudo apt-get -y install curl filezilla ncftp lftp rsync subversion subversion-tools git git-cola git-core git-svn git-email git-gui git-doc mercurial mercurial-git hgsvn cvs cvs2svn screen tmux kdiff3 meld tofrodos diffutils colordiff patch dos2unix
 sudo apt-get -y install firefox firefox-gnome-support firefox-locale-fr chromium-browser chromium-browser-l10n chromium-codecs-ffmpeg thunderbird thunderbird-locale-fr thunderbird-gnome-support
 sudo apt-get -y install openjdk-6-jdk icedtea-6-plugin openjdk-7-jdk icedtea-7-plugin
 #sudo apt-get -y autoremove gimp gimp-plugin-registry
