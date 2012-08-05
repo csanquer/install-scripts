@@ -34,7 +34,7 @@ sudo apt-get -y install gnome-shell gnome-panel ubuntu-tweak grub-customizer com
 sudo apt-get -y install opera google-chrome-stable
 
 # requirements for official skype 4
-sudo apt-get -y install libqt4-core et libqt4-dbus
+sudo apt-get -y install libqt4-core libqt4-dbus
 
 # requirements for mysql workbench
 sudo apt-get -y install mysql-common python-paramiko python-pysqlite2 libctemplate0 libgtkmm-2.4-1c2a
