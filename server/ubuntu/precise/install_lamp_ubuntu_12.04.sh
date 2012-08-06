@@ -35,6 +35,17 @@ do
     sudo sed -i 's/^\(html_errors =\).*$/\1 On/' /etc/php5/$app/php.ini 
 done
 
+# Xdebug config
+sudo sed -i '/zend_extension=.*/ a \
+xdebug.remote_enable=On \
+xdebug.remote_host="localhost" \
+xdebug.remote_port=9001 \
+xdebug.remote_handler="dbgp" \
+xdebug.max_nesting_level=1000 \
+xdebug.collect_params=2 \
+xdebug.collect_return=On \
+' /etc/php5/conf.d/xdebug.ini
+
 # PHP Tools
 sudo mkdir /opt/composer
 curl -s https://getcomposer.org/installer | sudo php -- --install-dir=/opt/composer
