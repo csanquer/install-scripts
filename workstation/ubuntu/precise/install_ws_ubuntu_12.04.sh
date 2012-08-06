@@ -20,7 +20,7 @@ sudo apt-get -y update
 sudo apt-get -y upgrade 
 
 sudo apt-get -y install openssh-server openssh-client openssh-blacklist openssh-blacklist-extra nano kate openssl openssl-blacklist openssl-blacklist-extra bash-completion zsh zsh-doc terminator vim vim-doc emacs vim-gnome
-sudo apt-get -y install gparted tree mc ttf-inconsolata ack-grep kdesdk-scripts nautilus-open-terminal cups-pdf gedit-plugins gedit-developer-plugins 
+sudo apt-get -y install gparted tree mc ttf-inconsolata ack-grep kdesdk-scripts nautilus-open-terminal cups-pdf gedit-plugins gedit-developer-plugins synaptic
 sudo apt-get -y install samba samba-doc samba-tools
 sudo apt-get -y install manpages-fr manpages-fr-dev manpages-fr-extra build-essential bison
 sudo apt-get -y install p7zip p7zip-full p7zip-rar lzma unrar rar
