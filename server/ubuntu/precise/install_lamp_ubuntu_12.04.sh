@@ -10,5 +10,10 @@ sudo apt-get -y install php5 php-apc php-pear php5-cgi php5-cli php5-fpm php5-de
 sudo cp -R assets/etc/apache2/* /etc/apache2/
 sudo cp -R assets/var/www/* /var/www/
 sudo cp -R assets/home/www-data /home
-chown -R www-data:www-data /home/www-data
+sudo chown -R www-data:www-data /home/www-data
 
+sudo sed -i '/ServerRoot \"\/etc\/apache2\"/ aServerName workstation.local' /etc/apache2/apache2.conf 
+sudo a2enmod actions alias fcgid headers vhost_alias suexec  rewrite 
+sudo service apache2 restart
+
+sudo apt-get -y install phpmyadmin
