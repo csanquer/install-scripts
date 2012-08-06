@@ -1,0 +1,18 @@
+<VirtualHost *:80>
+  ServerName %host%.local
+  DocumentRoot "/home/charles/www/%dir%"
+  DirectoryIndex index.php index.html
+  
+  ErrorLog  /home/charles/www/log/%dir%.error.apache.log
+  CustomLog /home/charles/www/log/%dir%.custom.apache.log combined
+  
+  Alias /fcgi-bin/ /home/www-data/charles/fcgi-bin/
+  SuexecUserGroup charles charles
+
+  <Directory "/home/charles/www/%dir%">
+    AllowOverride All
+    Order allow,deny
+    Allow from All
+  </Directory>
+  
+</VirtualHost>
