@@ -30,9 +30,11 @@ fi
 #umask g+w
 #source /etc/profile.d/rvm.sh
 
-rvm install 1.9.3-p194
-rvm use --default 1.9.3-p194
+rvm install 1.9.3
+rvm use --default 1.9.3
 rvm alias create default ruby-1.9.3-p194
+
+rvm use 1.9.3
 
 gem update --system
 gem install bundler redcarpet rails rake passenger
