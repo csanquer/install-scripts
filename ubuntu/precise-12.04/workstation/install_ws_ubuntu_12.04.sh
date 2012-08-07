@@ -49,7 +49,7 @@ sudo apt-get -y install libqt4-core libqt4-dbus
 sudo apt-get -y install mysql-common python-paramiko python-pysqlite2 libctemplate0 libgtkmm-2.4-1c2a
 
 hasPkg1=`dpkg -l | grep -c 'libzip1'`
-if [ $hasPkg1 == 1]; 
+if [ $hasPkg1 == 0 ]; 
 then
     wget https://launchpad.net/ubuntu/+source/libzip/0.9.3-1/+build/1728114/+files/libzip1_0.9.3-1_amd64.deb
     sudo dpkg -i libzip1_0.9.3-1_amd64.deb
@@ -57,7 +57,7 @@ then
 fi
 
 hasPkg2=`dpkg -l | grep -c 'libmysqlclient16'`
-if [ $hasPkg2 == 1]; 
+if [ $hasPkg2 == 0 ]; 
 then
     wget http://launchpadlibrarian.net/94808408/libmysqlclient16_5.1.58-1ubuntu5_amd64.deb
     sudo dpkg -i libmysqlclient16_5.1.58-1ubuntu5_amd64.deb
