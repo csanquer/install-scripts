@@ -1,13 +1,17 @@
 #!/bin/bash
 
 #new repositories and gpg keys
-sudo cp assets/etc/apt/sources.list.d/* /etc/apt/sources.list.d/
 #google chrome
+sudo cp assets/etc/apt/sources.list.d/google-chrome.list /etc/apt/sources.list.d/
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-#medibuntu
-wget -q http://packages.medibuntu.org/medibuntu-key.gpg -O- | sudo apt-key add -
+
 #opera browser
+sudo cp assets/etc/apt/sources.list.d/opera.list /etc/apt/sources.list.d/
 wget -q http://deb.opera.com/archive.key -O- | sudo apt-key add -
+
+#medibuntu
+sudo cp assets/etc/apt/sources.list.d/medibuntu.list /etc/apt/sources.list.d/
+wget -q http://packages.medibuntu.org/medibuntu-key.gpg -O- | sudo apt-key add -
 
 #grub customizer
 sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
