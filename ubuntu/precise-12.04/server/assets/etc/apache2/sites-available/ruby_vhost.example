@@ -1,0 +1,12 @@
+<VirtualHost *:80>
+  ServerName %host%.local
+  # !!! Be sure to point DocumentRoot to 'public'!
+  DocumentRoot %dir%/public    
+  <Directory %dir%/public>
+     # This relaxes Apache security settings.
+     AllowOverride all
+     # MultiViews must be turned off.
+     Options -MultiViews
+  </Directory>
+</VirtualHost>
+
