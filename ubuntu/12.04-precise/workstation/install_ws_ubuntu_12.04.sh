@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #new repositories and gpg keys
-sudo cp assets/* /etc/apt/sources.list.d/
+sudo cp assets/etc/apt/sources.list.d/* /etc/apt/sources.list.d/
 #google chrome
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 #medibuntu
