@@ -18,7 +18,6 @@ then
     exit 1
 fi
 
-umask -S
 groupWrite=`umask -S | grep -c 'g=r\?wx\?'`
 if [ $groupWrite == 0 ];
 then
