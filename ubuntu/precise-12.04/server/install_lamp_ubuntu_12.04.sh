@@ -9,7 +9,10 @@ sudo apt-get -y install apache2-mpm-worker apache2-utils libapache2-mod-fcgid ap
 sudo apt-get -y install php5 php-apc php-pear php5-cgi php5-cli php5-fpm php5-dev php5-curl php5-gd php5-imagick php5-imap php5-intl php5-mcrypt php5-mysql php5-sqlite php5-xdebug php5-xmlrpc php5-xsl php5-pgsql imagemagick libmagickcore-dev libmagickwand-dev
 
 # Configure Apache and FCGID
-sudo cp -R assets/etc/apache2/* /etc/apache2/
+sudo cp -R assets/etc/apache2/sites-available/* /etc/apache2/sites-available/
+sudo cp -R assets/etc/apache2/conf.d/php5-fcgid.conf /etc/apache2/conf.d/
+sudo cp -R assets/etc/apache2/conf.d/vcs /etc/apache2/conf.d/
+sudo cp -R assets/etc/apache2/suexec/* /etc/apache2/suexec/
 sudo cp -R assets/var/www/* /var/www/
 sudo cp -R assets/home/www-data /home
 sudo chown -R www-data:www-data /home/www-data
