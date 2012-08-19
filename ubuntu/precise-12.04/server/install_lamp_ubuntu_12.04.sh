@@ -38,6 +38,20 @@ do
     sudo sed -i 's/^\(html_errors =\).*$/\1 On/' /etc/php5/$app/php.ini 
 done
 
+# configure mysql
+sudo sed -i "/\[mysqld\]/ a\
+# encoding and storage engine\n\
+default-storage-engine=INNODB\n\
+init-connect='SET NAMES utf8'\n\
+# mysql 5.1\n\
+#default-character-set=utf8\n\
+#default-collation=utf8_unicode_ci\n\
+\n\
+#mysql 5.5\n\
+character-set-server=utf8\n\
+collation-server=utf8_unicode_ci\n\
+" /etc/mysql/my.cnf
+
 # Xdebug config
 sudo sed -i '/zend_extension=.*/ a \
 xdebug.remote_enable=On \
