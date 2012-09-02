@@ -37,7 +37,7 @@ rvm use 1.9.3-p194
 rvm info
 
 gem update --system
-gem install bundler redcarpet rails rake passenger
+gem install bundler redcarpet rails rake passenger compass
 
 rvmsudo passenger-install-apache2-module
 
