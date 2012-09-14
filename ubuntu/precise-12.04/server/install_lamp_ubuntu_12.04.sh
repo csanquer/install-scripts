@@ -5,10 +5,10 @@ sudo apt-get -y upgrade
 
 sudo apt-get -y install mysql-client mysql-server libmysqlclient-dev
 sudo apt-get -y install postgresql libpq-dev
-sudo apt-get -y install apache2-mpm-worker apache2-utils libapache2-mod-fcgid apache2-suexec-custom apache2-threaded-dev curl postfix
+sudo apt-get -y install apache2-mpm-worker apache2-utils libapache2-mod-fcgid libapache2-mod-fastcgi apache2-suexec-custom apache2-threaded-dev curl postfix
 sudo apt-get -y install php5 php-apc php-pear php5-cgi php5-cli php5-fpm php5-dev php5-curl php5-gd php5-imagick php5-imap php5-intl php5-mcrypt php5-mysql php5-sqlite php5-xdebug php5-xmlrpc php5-xsl php5-pgsql imagemagick libmagickcore-dev libmagickwand-dev
 
-# Configure Apache and FCGID
+# Configure Apache, FCGID , suexec and fastcgi for php fpm
 sudo cp -R assets/etc/apache2/sites-available/* /etc/apache2/sites-available/
 sudo cp -R assets/etc/apache2/conf.d/php5-fcgid.conf /etc/apache2/conf.d/
 sudo cp -R assets/etc/apache2/conf.d/vcs /etc/apache2/conf.d/
@@ -17,9 +17,13 @@ sudo cp -R assets/var/www/* /var/www/
 sudo cp -R assets/home/www-data /home
 sudo chown -R www-data:www-data /home/www-data
 
-sudo sed -i '/ServerRoot \"\/etc\/apache2\"/ aServerName workstation.local' /etc/apache2/apache2.conf 
-sudo a2enmod actions alias fcgid headers vhost_alias suexec  rewrite 
+sudo sed -i '/ServerRoot \"\/etc\/apache2\"/ aServerName workstation.local' /etc/apache2/apache2.conf
+# fcgid +suexec
+#sudo a2enmod actions alias fcgid headers vhost_alias suexec rewrite
+# fastcgi and php fpm
+sudo a2enmod actions alias fastcgi headers vhost_alias rewrite  
 sudo service apache2 restart
+sudo service php5-fpm restart
 
 # DB Admins
 sudo apt-get -y install phpmyadmin phppgadmin pgadmin3
@@ -37,6 +41,9 @@ do
     sudo sed -i 's/^\(memory_limit =\).*$/\1 128M/' /etc/php5/$app/php.ini 
     sudo sed -i 's/^\(html_errors =\).*$/\1 On/' /etc/php5/$app/php.ini 
 done
+
+sudo apt-get -y install apache2-mpm-worker apache2-threaded-dev 
+sudo apt-get -y remove libapache2-mod-php5 apache2-mpm-prefork
 
 # configure mysql
 sudo sed -i "/\[mysqld\]/ a\
@@ -62,6 +69,10 @@ xdebug.max_nesting_level=1000 \
 xdebug.collect_params=2 \
 xdebug.collect_return=On \
 ' /etc/php5/conf.d/xdebug.ini
+
+sudo service apache2 restart
+sudo service php5-fpm restart
+sudo service mysql restart
 
 # PHP Tools
 sudo mkdir /opt/composer
