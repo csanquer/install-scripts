@@ -13,6 +13,7 @@ sudo cp -R assets/etc/apache2/sites-available/* /etc/apache2/sites-available/
 sudo cp -R assets/etc/apache2/conf.d/php5-fcgid.conf /etc/apache2/conf.d/
 sudo cp -R assets/etc/apache2/conf.d/vcs /etc/apache2/conf.d/
 sudo cp -R assets/etc/apache2/suexec/* /etc/apache2/suexec/
+sudo cp -R assets/etc/php5/fpm/pool.d/* /etc/php5/fpm/pool.d/
 sudo cp -R assets/var/www/* /var/www/
 sudo cp -R assets/home/www-data /home
 sudo chown -R www-data:www-data /home/www-data
