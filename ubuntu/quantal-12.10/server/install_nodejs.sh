@@ -2,7 +2,7 @@
 
 # install node.js (global system)
 
-sudo apt-get install -y build-essential git python libssl-dev -y
+sudo aptitude install -y build-essential git python libssl-dev -y
 
 git clone git://github.com/joyent/node.git
 cd node
