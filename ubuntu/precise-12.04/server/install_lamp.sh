@@ -1,12 +1,14 @@
 #!/bin/bash
 
-sudo aptitude -y update 
-sudo aptitude -y dist-upgrade 
+aptbin=aptitude
 
-sudo aptitude -y install mysql-client mysql-server libmysqlclient-dev
-sudo aptitude -y install postgresql libpq-dev
-sudo aptitude -y install apache2-mpm-worker apache2-utils libapache2-mod-fcgid libapache2-mod-fastcgi apache2-suexec-custom apache2-threaded-dev curl postfix
-sudo aptitude -y install php5 php-apc php-pear php5-cgi php5-cli php5-fpm php5-dev php5-curl php5-gd php5-imagick php5-imap php5-intl php5-mcrypt php5-mysql php5-sqlite php5-xdebug php5-xmlrpc php5-xsl php5-pgsql imagemagick libmagickcore-dev libmagickwand-dev
+sudo $aptbin -y update 
+sudo $aptbin -y dist-upgrade 
+
+sudo $aptbin -y install mysql-client mysql-server libmysqlclient-dev
+sudo $aptbin -y install postgresql libpq-dev
+sudo $aptbin -y install apache2-mpm-worker apache2-utils libapache2-mod-fcgid libapache2-mod-fastcgi apache2-suexec-custom apache2-threaded-dev curl postfix
+sudo $aptbin -y install php5 php-apc php-pear php5-cgi php5-cli php5-fpm php5-dev php5-curl php5-gd php5-imagick php5-imap php5-intl php5-mcrypt php5-mysql php5-sqlite php5-xdebug php5-xmlrpc php5-xsl php5-pgsql imagemagick libmagickcore-dev libmagickwand-dev
 
 # Configure Apache, FCGID , suexec and fastcgi for php fpm
 sudo cp -R assets/etc/apache2/sites-available/* /etc/apache2/sites-available/
@@ -27,7 +29,7 @@ sudo service apache2 restart
 sudo service php5-fpm restart
 
 # DB Admins
-sudo aptitude -y install phpmyadmin phppgadmin pgadmin3
+sudo $aptbin -y install phpmyadmin phppgadmin pgadmin3
 
 # configure PHP
 for app in cli cgi fpm
@@ -43,8 +45,8 @@ do
     sudo sed -i 's/^\(html_errors =\).*$/\1 On/' /etc/php5/$app/php.ini 
 done
 
-sudo aptitude -y install apache2-mpm-worker apache2-threaded-dev 
-sudo aptitude -y remove libapache2-mod-php5 apache2-mpm-prefork
+sudo $aptbin -y install apache2-mpm-worker apache2-threaded-dev 
+sudo $aptbin -y remove libapache2-mod-php5 apache2-mpm-prefork
 
 # configure mysql
 sudo sed -i "/\[mysqld\]/ a\
