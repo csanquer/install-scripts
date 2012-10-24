@@ -13,6 +13,7 @@ sudo $aptbin -y install php5 php-apc php-pear php5-cgi php5-cli php5-fpm php5-de
 # Configure Apache, FCGID , suexec and fastcgi for php fpm
 sudo cp -R assets/etc/apache2/sites-available/* /etc/apache2/sites-available/
 sudo cp -R assets/etc/apache2/conf.d/php5-fcgid.conf /etc/apache2/conf.d/
+sudo cp -R assets/etc/apache2/conf.d/php5-fpm.conf /etc/apache2/conf.d/
 sudo cp -R assets/etc/apache2/conf.d/vcs /etc/apache2/conf.d/
 sudo cp -R assets/etc/apache2/suexec/* /etc/apache2/suexec/
 sudo cp -R assets/etc/php5/fpm/pool.d/* /etc/php5/fpm/pool.d/
@@ -24,7 +25,8 @@ sudo sed -i '/ServerRoot \"\/etc\/apache2\"/ aServerName workstation.local' /etc
 # fcgid +suexec
 #sudo a2enmod actions alias fcgid headers vhost_alias suexec rewrite
 # fastcgi and php fpm
-sudo a2enmod actions alias fastcgi headers vhost_alias rewrite  
+sudo a2enmod actions alias fastcgi headers vhost_alias rewrite env
+sudo a2dismod fcgid
 sudo service apache2 restart
 sudo service php5-fpm restart
 
