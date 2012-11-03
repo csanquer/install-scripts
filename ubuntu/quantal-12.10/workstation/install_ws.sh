@@ -24,7 +24,7 @@ sudo apt-get -y update
 sudo apt-get -y upgrade 
 
 sudo apt-get -y install openssh-server openssh-client openssh-blacklist openssh-blacklist-extra nano kate openssl openssl-blacklist openssl-blacklist-extra bash-completion zsh zsh-doc terminator vim vim-doc emacs vim-gnome trash-cli
-sudo apt-get -y install gparted tree mc ttf-inconsolata ack-grep kdesdk-scripts nautilus-open-terminal cups-pdf gedit-plugins gedit-developer-plugins synaptic
+sudo apt-get -y install gparted tree mc ttf-inconsolata ack-grep kdesdk-scripts nautilus-open-terminal cups-pdf gedit-plugins gedit-developer-plugins synaptic numlockx
 sudo apt-get -y install samba samba-doc samba-tools
 sudo apt-get -y install manpages-fr manpages-fr-dev manpages-fr-extra build-essential bison
 sudo apt-get -y install p7zip p7zip-full p7zip-rar lzma unrar rar
@@ -36,8 +36,11 @@ sudo apt-get -y install libreoffice graphviz gimp gnucash keepassx keepass2 keep
 sudo apt-get -y install clamav clamav-freshclam
 sudo apt-get -y install gnome-shell gnome-panel grub-customizer compizconfig-settings-manager compiz-plugins-extra ubuntu-restricted-extras
 sudo apt-get -y install opera google-chrome-stable
-sudo apt-get -y install virtualbox-4.1
+sudo apt-get -y install virtualbox-4.2
 
 # requirements for official skype 4
 sudo apt-get -y install libqt4-core libqt4-dbus
+
+sudo cp assets/etc/lightdm/lightdm.conf /etc/lightdm/
+sudo cp assets/etc/rc.local /etc/
 
