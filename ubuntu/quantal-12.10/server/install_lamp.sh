@@ -31,7 +31,7 @@ sudo service apache2 restart
 sudo service php5-fpm restart
 
 # DB Admins
-sudo $aptbin -y install phpmyadmin phppgadmin pgadmin3
+sudo $aptbin -y install phpmyadmin phppgadmin
 
 # configure PHP
 for app in cli cgi fpm
@@ -105,7 +105,7 @@ sudo pear install phpunit/PHP_Invoker
 
 sudo pear channel-discover pear.phpmd.org 
 sudo pear channel-discover pear.pdepend.org 
-sudo pear install --alldeps phpmd/PHP_PMD
+sudo pear install phpmd/PHP_PMD
 
 sudo pear channel-discover pear.phpdoc.org
 sudo pear install phpdoc/phpDocumentor-alpha
