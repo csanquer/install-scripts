@@ -70,10 +70,12 @@ xdebug.remote_enable=On \
 xdebug.remote_host="localhost" \
 xdebug.remote_port=9001 \
 xdebug.remote_handler="dbgp" \
+xdebug.idekey=netbeans-xdebug \
+xdebug.cli_color=2 \
 xdebug.max_nesting_level=1000 \
 xdebug.collect_params=2 \
 xdebug.collect_return=On \
-' /etc/php5/conf.d/xdebug.ini
+' /etc/php5/conf.d/20-xdebug.ini
 
 sudo service apache2 restart
 sudo service php5-fpm restart

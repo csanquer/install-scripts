@@ -1,6 +1,6 @@
 <VirtualHost *:80>
   ServerName %host%.local
-  DocumentRoot "/home/charles/www/%dir%/public 
+  DocumentRoot "/home/charles/www/%dir%/public"
   
   ErrorLog  /home/charles/www/log/%dir%.error.apache.log
   CustomLog /home/charles/www/log/%dir%.custom.apache.log combined

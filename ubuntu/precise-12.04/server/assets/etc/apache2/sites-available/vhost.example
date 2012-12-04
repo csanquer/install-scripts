@@ -15,7 +15,7 @@
      # add an Alias to the fcgi location
      Alias /fcgi-bin/php5.external /php5.external.%host%
      #bind cgi server to php5 fpm socket
-     FastCgiExternalServer /php5.external.%host% -socket /tmp/php5-fpm.%pool%.sock -pass-header Authorization
+     FastCgiExternalServer /php5.external.%host% -socket /var/run/php5-fpm.%pool%.sock -pass-header Authorization
   </IfModule>
 
   <Directory "/home/%user%/www/%dir%">
