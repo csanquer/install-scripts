@@ -1,0 +1,4 @@
+#wget http://opensource.wandisco.com/wandisco-debian.gpg
+#sudo apt-key add wandisco-debian.gpg
+deb http://opensource.wandisco.com/debian/ squeeze svn17
+
