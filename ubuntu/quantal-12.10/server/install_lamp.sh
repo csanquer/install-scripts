@@ -6,10 +6,13 @@ sudo $aptbin -y update
 sudo $aptbin -y dist-upgrade 
 
 
-sudo $aptbin -y install apache2-mpm-worker apache2-utils libapache2-mod-fcgid libapache2-mod-fastcgi apache2-suexec-custom apache2-threaded-dev curl postfix
+sudo $aptbin -y install curl postfix
+sudo $aptbin -y install mysql-client mysql-server libmysqlclient-dev 
+sudo $aptbin -y install apache2-mpm-worker apache2-utils libapache2-mod-fcgid libapache2-mod-fastcgi apache2-suexec-custom apache2-threaded-dev
 sudo $aptbin -y install php5 php-apc php-pear php5-cgi php5-cli php5-fpm php5-dev php5-curl php5-gd php5-imagick php5-imap php5-intl php5-mcrypt php5-sqlite php5-xdebug php5-xmlrpc php5-xsl imagemagick libmagickcore-dev libmagickwand-dev
-sudo $aptbin -y install mysql-client mysql-server libmysqlclient-dev php5-mysql 
-sudo $aptbin -y install postgresql libpq-dev php5-pgsql
+sudo $aptbin -y install php5-mysql 
+sudo $aptbin -y install postgresql libpq-dev
+sudo $aptbin -y install php5-pgsql
 
 # Configure Apache, FCGID , suexec and fastcgi for php fpm
 sudo cp -R assets/etc/apache2/sites-available/* /etc/apache2/sites-available/
@@ -32,7 +35,8 @@ sudo service apache2 restart
 sudo service php5-fpm restart
 
 # DB Admins
-sudo $aptbin -y install phpmyadmin phppgadmin
+sudo $aptbin -y install phpmyadmin
+sudo $aptbin -y install phppgadmin
 
 # configure PHP
 for app in cli cgi fpm
