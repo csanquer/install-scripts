@@ -1,0 +1,4 @@
+#wget -q -O - http://opensource.wandisco.com/wandisco-debian.gpg | sudo apt-key add -
+#deb http://opensource.wandisco.com/debian/ wheezy svn17
+deb http://opensource.wandisco.com/debian/ wheezy svn18
+
