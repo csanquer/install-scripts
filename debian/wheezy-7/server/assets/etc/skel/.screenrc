@@ -1,0 +1,8 @@
+# will use bashrc
+shell /bin/bash
+#skip intro
+startup_message off
+# detach on disconnect
+autodetach on
+# bottom info bar format
+caption always "%{Yb} %02d-%02m-%Y %0c %{k}|%{C} %H %{k}|%{G} %l %{k}|%{W} %-Lw%{R}%n %t%{W}%+Lw"
