@@ -44,9 +44,12 @@ sudo $aptbin -y install curl filezilla ncftp lftp rsync subversion subversion-to
 sudo $aptbin -y install firefox firefox-gnome-support firefox-locale-fr chromium-browser chromium-browser-l10n chromium-codecs-ffmpeg thunderbird thunderbird-locale-fr thunderbird-gnome-support webaccounts-chromium-extension unity-chromium-extension
 sudo $aptbin -y install openjdk-6-jdk icedtea-6-plugin openjdk-7-jdk icedtea-7-plugin
 #sudo $aptbin -y autoremove gimp gimp-plugin-registry
-sudo $aptbin -y install libreoffice graphviz gimp gnucash keepassx keepass2 keepass2-doc ooo-thumbnailer pidgin
+sudo $aptbin -y install libreoffice graphviz gimp keepassx keepass2 keepass2-doc ooo-thumbnailer pidgin
+sudo $aptbin -y install gnucash
 sudo $aptbin -y install clamav clamav-freshclam
-sudo $aptbin -y install gnome-shell gnome-panel grub-customizer compizconfig-settings-manager compiz-plugins-extra ubuntu-restricted-extras
+sudo $aptbin -y install compizconfig-settings-manager compiz-plugins-extra ubuntu-restricted-extras
+sudo $aptbin -y install grub-customizer 
+sudo $aptbin -y install gnome-shell gnome-panel
 sudo $aptbin -y install opera google-chrome-stable
 sudo $aptbin -y install virtualbox-4.2
 
