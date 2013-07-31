@@ -1,5 +1,6 @@
 <VirtualHost *:80>
   ServerName %host%.local
+  ServerAlias %host%.dev
   DocumentRoot "/home/charles/www/%dir%/public"
   
   ErrorLog  /home/charles/www/log/%dir%.error.apache.log

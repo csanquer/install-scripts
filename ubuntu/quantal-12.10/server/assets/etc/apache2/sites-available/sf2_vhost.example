@@ -1,5 +1,6 @@
 <VirtualHost *:80>
   ServerName %host%.local
+  ServerAlias %host%.dev
   DocumentRoot "/home/%user%/www/%dir%/web"
   DirectoryIndex index.php app.php index.html
   

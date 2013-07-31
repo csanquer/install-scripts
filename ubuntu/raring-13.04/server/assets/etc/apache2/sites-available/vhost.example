@@ -1,14 +1,11 @@
 <VirtualHost *:80>
   ServerName %host%.local
+  ServerAlias %host%.dev
   DocumentRoot "/home/%user%/www/%dir%"
   DirectoryIndex index.php index.html
   
   ErrorLog  /home/%user%/www/log/%dir%.error.apache.log
   CustomLog /home/%user%/www/log/%dir%.custom.apache.log combined
-  
-  #configuration for fcgid +suexec (deprecated)
-  #Alias /fcgi-bin/ /home/www-data/%user%/fcgi-bin/
-  #SuexecUserGroup %user% %group%
 
   # override some config in /etc/apache2/conf.d/php5-fpm.conf to use a different php fpm pool %pool%
   <IfModule mod_fastcgi.c>
