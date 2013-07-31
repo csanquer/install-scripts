@@ -23,7 +23,7 @@ sudo cp -R assets/var/www/* /var/www/
 
 sudo sed -i '/ServerRoot \"\/etc\/apache2\"/ aServerName workstation.local' /etc/apache2/apache2.conf
 # fastcgi and php fpm
-sudo a2enmod actions alias fastcgi headers vhost_alias rewrite env
+sudo a2enmod actions alias fastcgi headers vhost_alias rewrite env expires deflate
 sudo service apache2 restart
 sudo service php5-fpm restart
 

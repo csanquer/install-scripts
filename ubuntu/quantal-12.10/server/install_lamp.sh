@@ -29,7 +29,7 @@ sudo sed -i '/ServerRoot \"\/etc\/apache2\"/ aServerName workstation.local' /etc
 # fcgid +suexec
 #sudo a2enmod actions alias fcgid headers vhost_alias suexec rewrite
 # fastcgi and php fpm
-sudo a2enmod actions alias fastcgi headers vhost_alias rewrite env
+sudo a2enmod actions alias fastcgi headers vhost_alias rewrite env expires deflate
 sudo a2dismod fcgid
 sudo service apache2 restart
 sudo service php5-fpm restart
