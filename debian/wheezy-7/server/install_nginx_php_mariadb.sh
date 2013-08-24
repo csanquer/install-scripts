@@ -64,7 +64,7 @@ xdebug.cli_color=2 \
 xdebug.max_nesting_level=1000 \
 xdebug.collect_params=2 \
 xdebug.collect_return=On \
-' /etc/php5/conf.d/xdebug.ini
+' /etc/php5/conf.d/20-xdebug.ini
 
 sudo service fcgiwrap restart
 sudo service nginx restart

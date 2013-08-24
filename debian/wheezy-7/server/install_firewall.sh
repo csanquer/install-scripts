@@ -97,5 +97,5 @@ sudo iptables -t filter -A OUTPUT -p tcp --dport 9418 -j ACCEPT
 sudo iptables -t filter -A INPUT -p udp --dport 9418 -j ACCEPT
 sudo iptables -t filter -A OUTPUT -p udp --dport 9418 -j ACCEPT
 
-sudo apt-get install iptables-persistent
+sudo apt-get install iptables-persistent fail2ban
 
