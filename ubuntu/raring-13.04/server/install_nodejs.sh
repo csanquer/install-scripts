@@ -9,10 +9,10 @@ sudo $aptbin install -y build-essential git python libssl-dev -y
 
 git clone https://github.com/joyent/node.git
 cd node
-git checkout v0.9.1
+git checkout v0.10.21
 
 ./configure
 make
 sudo make install
 
-sudo npm install less recess -g
+sudo npm install -g less recess uglifycss uglify-js 
