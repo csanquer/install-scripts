@@ -39,7 +39,7 @@ rvm info
 gem update --system
 gem install bundler redcarpet rails rake passenger compass
 
-rvmsudo passenger-install-apache2-module
+#rvmsudo passenger-install-apache2-module
 
-sudo cp assets/etc/apache2/conf.d/rvm_passenger.conf /etc/apache2/conf.d/
-sudo service apache2 restart
+#sudo cp assets/etc/apache2/conf.d/rvm_passenger.conf /etc/apache2/conf.d/
+#sudo service apache2 restart
