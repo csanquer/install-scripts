@@ -43,7 +43,7 @@ sudo $aptbin -y update
 sudo $aptbin -y dist-upgrade 
 
 sudo $aptbin -y install synaptic
-sudo $aptbin -y install acl openssh-server openssh-client openssh-blacklist openssh-blacklist-extra nano  openssl openssl-blacklist openssl-blacklist-extra bash-completion zsh zsh-doc terminator vim vim-doc emacs vim-gnome trash-cli ctags zsh mc
+sudo $aptbin -y install acl openssh-server openssh-client openssh-blacklist openssh-blacklist-extra nano  openssl openssl-blacklist openssl-blacklist-extra bash-completion zsh zsh-doc terminator vim vim-doc vim-gnome trash-cli ctags zsh mc
 sudo $aptbin -y install gparted tree mc ttf-inconsolata ack-grep cups-pdf nautilus-open-terminal 
 sudo $aptbin -y install gedit-plugins gedit-developer-plugins
 sudo $aptbin -y install samba samba-doc samba-tools
@@ -63,6 +63,14 @@ sudo $aptbin -y install ubuntu-restricted-extras libdvdcss2
 sudo $aptbin -y install opera google-chrome-stable
 sudo $aptbin -y install virtualbox-4.3
 sudo $aptbin -y install grub-customizer 
+read -p "Install emacs ? " yn
+case $yn in
+    [YyOo]* ) 
+        sudo $aptbin -y install emacs;
+        ;;
+    [Nn]* ) 
+        ;;
+esac
 read -p "Install kate kdiff3 and kdesdk-scripts ? " yn
 case $yn in
     [YyOo]* ) 
