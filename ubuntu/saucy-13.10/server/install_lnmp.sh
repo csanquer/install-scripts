@@ -54,7 +54,6 @@ sudo add-apt-repository ppa:ondrej/php5
 # Latest nginx
 sudo add-apt-repository ppa:ondrej/nginx
 
-
 sudo $aptbin -y update 
 sudo $aptbin -y dist-upgrade 
 
@@ -69,27 +68,20 @@ case $sqldb in
     break;;
 esac
 
-sudo $aptbin -y update 
-sudo $aptbin -y dist-upgrade 
-
 sudo $aptbin -y install curl postfix
-sudo $aptbin -y install nginx-full nginx-doc fcgiwrap apache-utils
-sudo $aptbin -y install php5 php-apcu php-pear php5-cgi php5-cli php5-fpm php5-dev php5-curl php5-gd php5-imagick php5-imap php5-intl php5-mcrypt php5-sqlite php5-xdebug php5-xmlrpc php5-xsl imagemagick libmagickcore-dev libmagickwand-dev
+sudo $aptbin -y install nginx-full nginx-doc fcgiwrap apache2-utils
+sudo $aptbin -y install php5 php5-apcu php-pear php5-cgi php5-cli php5-fpm php5-dev php5-curl php5-gd php5-imagick php5-imap php5-intl php5-mcrypt php5-sqlite php5-xdebug php5-xmlrpc php5-xsl imagemagick libmagickcore-dev libmagickwand-dev
 sudo $aptbin -y install php5-mysql 
 #sudo $aptbin -y install postgresql libpq-dev
 #sudo $aptbin -y install php5-pgsql
 
 # Configure Apache and fastcgi for php fpm
-sudo cp -R assets/etc/apache2/sites-available/* /etc/apache2/sites-available/
-sudo cp -R assets/etc/apache2/conf.d/* /etc/apache2/conf.d/
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
+sudo cp -R assets/etc/nginx/sites-available/* /etc/nginx/sites-available/
+sudo cp -R assets/etc/nginx/fastcgi_params /etc/
 sudo cp -R assets/etc/php5/fpm/pool.d/* /etc/php5/fpm/pool.d/
 sudo cp -R assets/var/www/* /var/www/
 
-#sudo sed -i '/ServerRoot \"\/etc\/apache2\"/ aServerName workstation.local' /etc/apache2/apache2.conf
-# fastcgi and php fpm
-#sudo a2enmod actions alias fastcgi headers vhost_alias rewrite env expires deflate
-#sudo service apache2 restart
-#sudo service php5-fpm restart
 
 # DB Admins
 sudo $aptbin -y install phpmyadmin
@@ -109,7 +101,6 @@ do
     sudo sed -i 's/^\(html_errors =\).*$/\1 On/' /etc/php5/$app/php.ini 
 done
 
-#sudo $aptbin -y install apache2-mpm-worker apache2-threaded-dev 
 #sudo $aptbin -y remove libapache2-mod-php5 apache2-mpm-prefork
 
 # configure mysql
