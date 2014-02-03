@@ -1,19 +1,76 @@
 #!/bin/bash
 
-aptbin=aptitude
-#aptbin=apt-get
+PS3='Package Manager to use : '
+options=("apt-get" "aptitude")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "apt-get")
+            aptbin=apt-get
+            break;;
+        "aptitude")
+            aptbin=aptitude
+            break;;
+        *)
+        echo invalid option
+        break;;
+    esac
+done
+
+PS3='SQL DB to use (default "MySQL 5.5"): '
+options=("MySQL 5.5" "MySQL 5.6" "MariaDB 5.5" "MariaDB 10.0")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "MySQL 5.5")
+            sqldb='mysql'
+            sudo add-apt-repository ppa:ondrej/mysql-5.5
+            break;;
+        "MySQL 5.6")
+            sqldb='mysql'
+            sudo add-apt-repository ppa:ondrej/mysql-5.6
+            break;;
+        "MariaDB 5.5")
+            sqldb='mariadb'
+            sudo $aptbin -y install software-properties-common
+            sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db
+            sudo add-apt-repository 'deb http://mirrors.linsrv.net/mariadb/repo/5.5/ubuntu saucy main'
+            break;;
+        "MariaDB 10.0")
+            sqldb='mariadb'
+            sudo $aptbint -y install software-properties-common
+            sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db
+            sudo add-apt-repository 'deb http://mirrors.linsrv.net/mariadb/repo/10.0/ubuntu saucy main'
+            break;;
+        *)
+            sqldb='mysql'
+            break;;
+    esac
+done
+
+# Latest PHP5
+sudo add-apt-repository ppa:ondrej/php5
 
 sudo $aptbin -y update 
 sudo $aptbin -y dist-upgrade 
 
+case $sqldb in
+    "mysql")
+        sudo $aptbin -y install mysql-client mysql-server libmysqlclient-dev 
+        break;;
+    "mariadb")
+        sudo $aptbin -y install mariadb-client mariadb-server libmariadbclient-dev
+        break;;
+    *)
+    break;;
+esac
 
 sudo $aptbin -y install curl postfix
-sudo $aptbin -y install mysql-client mysql-server libmysqlclient-dev 
 sudo $aptbin -y install apache2-mpm-worker apache2-utils libapache2-mod-fastcgi apache2-threaded-dev
 sudo $aptbin -y install php5 php-apc php-pear php5-cgi php5-cli php5-fpm php5-dev php5-curl php5-gd php5-imagick php5-imap php5-intl php5-mcrypt php5-sqlite php5-xdebug php5-xmlrpc php5-xsl imagemagick libmagickcore-dev libmagickwand-dev
 sudo $aptbin -y install php5-mysql 
 #sudo $aptbin -y install postgresql libpq-dev
-sudo $aptbin -y install php5-pgsql
+#sudo $aptbin -y install php5-pgsql
 
 # Configure Apache and fastcgi for php fpm
 sudo cp -R assets/etc/apache2/sites-available/* /etc/apache2/sites-available/
