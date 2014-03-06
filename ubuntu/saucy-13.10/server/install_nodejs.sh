@@ -23,16 +23,23 @@ sudo $aptbin install -y build-essential git python libssl-dev
 
 if [ -d 'node' ]; then
     cd node
+    git checkout master
     git fetch
+    git merge origin/master
 else
+    echo clone NodeJS from Github
     git clone https://github.com/joyent/node.git
     cd node
+    git checkout master
 fi
 
-git checkout v0.11.11
+lastTag=`git describe --abbrev=0 --tags`
+echo use NodeJS $lastTag
+git checkout $lastTag
 
 ./configure
 make
 sudo make install
 
-sudo npm install -g less recess uglifycss uglify-js 
+sudo npm update -g
+sudo npm install -g less recess uglifycss uglify-js bower
