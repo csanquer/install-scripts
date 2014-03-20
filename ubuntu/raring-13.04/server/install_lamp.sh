@@ -1,11 +1,33 @@
 #!/bin/bash
 
-aptbin=aptitude
-#aptbin=apt-get
+PS3='Package Manager to use : '
+options=("apt-get" "aptitude")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "apt-get")
+            aptbin=apt-get
+            break;;
+        "aptitude")
+            aptbin=aptitude
+            break;;
+        *)
+        echo invalid option
+        break;;
+    esac
+done
+
+
+
+sudo add-apt-repository ppa:ondrej/apache2
+sudo add-apt-repository ppa:ondrej/php5
+
+#sudo apt-get -y install software-properties-common
+#sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db
+#sudo cp assets/etc/apt/sources.list.d/mariadb.list /etc/apt/sources.list.d/
 
 sudo $aptbin -y update 
 sudo $aptbin -y dist-upgrade 
-
 
 sudo $aptbin -y install curl postfix
 sudo $aptbin -y install mysql-client mysql-server libmysqlclient-dev 

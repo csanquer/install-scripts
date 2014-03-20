@@ -9,7 +9,7 @@ sudo $aptbin install -y build-essential git python libssl-dev -y
 
 git clone https://github.com/joyent/node.git
 cd node
-git checkout v0.10.21
+git checkout v0.11.8
 
 ./configure
 make
