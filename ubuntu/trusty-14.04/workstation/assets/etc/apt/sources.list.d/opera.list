@@ -1,0 +1,2 @@
+# wget -q http://deb.opera.com/archive.key -O- | sudo apt-key add -
+deb http://deb.opera.com/opera/ stable non-free
