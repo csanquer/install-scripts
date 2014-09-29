@@ -19,27 +19,12 @@ do
     esac
 done
 
-sudo $aptbin install -y build-essential git python libssl-dev 
+sudo $aptbin install -y curl build-essential git python libssl-dev 
 
-if [ -d 'node' ]; then
-    cd node
-    git checkout master
-    git fetch
-    git merge origin/master
-else
-    echo clone NodeJS from Github
-    git clone https://github.com/joyent/node.git
-    cd node
-    git checkout master
-fi
+curl -sL https://deb.nodesource.com/setup | sudo bash -
 
-lastTag=`git describe --abbrev=0 --tags`
-echo use NodeJS $lastTag
-git checkout $lastTag
-
-./configure
-make
-sudo make install
+sudo $aptbin install -y nodejs
 
 sudo npm update -g
-sudo npm install -g less recess uglifycss uglify-js bower
+sudo npm install -g less recess uglifycss uglify-js bower aglio
+
