@@ -1,0 +1,18 @@
+<VirtualHost *:80>
+  ServerName %host%.local
+  ServerAlias %host%.dev
+  DocumentRoot "/home/charles/www/%dir%/public"
+  
+  ErrorLog  /home/charles/www/log/%dir%.error.apache.log
+  CustomLog /home/charles/www/log/%dir%.custom.apache.log combined
+     
+  <Directory /home/charles/www/%dir%/public>
+     # This relaxes Apache security settings.
+     AllowOverride all
+     # MultiViews must be turned off.
+     Options -MultiViews
+     Order allow,deny
+     Allow from all
+  </Directory>
+</VirtualHost>
+
