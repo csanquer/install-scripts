@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#install RVM in multi user mode (rvmsudo)
+#install ruby rbenv
 
 PS3='Package Manager to use : '
 options=("apt-get" "aptitude")
@@ -31,15 +31,37 @@ sudo $aptbin -y install curl git bash bash-completion patch diffutils build-esse
 sudo $aptbin -y install apache2-utils curl postfix
 sudo $aptbin -y install imagemagick libmagickcore-dev libmagickwand-dev
 
-sudo rm -rf /usr/share/ruby-rvm /etc/rvmrc /etc/profile.d/rvm.sh
 
-sudo gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
-curl -sSL https://get.rvm.io | sudo bash -s stable --auto
+git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 
-sudo adduser $currentUser rvm
-echo "umask g+w " >> ~/.bashrc
-echo "source /etc/profile.d/rvm.sh " >> ~/.bashrc
-umask g+w
-source /etc/profile.d/rvm.sh
+if [ -f ~/.zshrc ]; then
+    echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
+    echo 'eval "$(rbenv init -)"' >> ~/.zshrc
+    source ~/.zshrc
+fi
 
-echo "now you must log out (from terminal and X session) and login again to use rvm without rvmsudo"
+if [ -f ~/.bashrc ]; then
+    echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+    echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+    source ~/.bashrc
+fi
+
+currentShell=`ps -p $$ | tail -1 | awk '{print $NF}'`
+
+if [ "$currentShell" = "bash" ];then
+    source ~/.bashrc
+elif [ "$currentShell" = "zsh" ]; then
+    source ~/.zshrc
+fi
+
+type rbenv
+
+rbenv install 2.1.5
+rbenv rehash
+rbenv global 2.1.5
+rbenv shell 2.1.5
+rbenv local 2.1.5
+
+gem update --system
+gem install bundler redcarpet rails rake passenger compass
