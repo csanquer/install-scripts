@@ -36,7 +36,20 @@ sudo $aptbin -y install lxc-docker
 
 # add current user to docker group to be able to run docker without sudo
 sudo groupadd docker
-sudo gpasswd -a ${USER} docker
+sudo usermod -a -G docker ${USER}
 
 sudo service docker restart
 
+echo "docker version"
+sudo docker --version
+
+# install docker compose
+curl -L https://github.com/docker/compose/releases/download/1.2.0/docker-compose-`uname -s`-`uname -m` > docker-compose
+sudo mv docker-compose /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+# docker compose bash completion
+curl -L https://raw.githubusercontent.com/docker/compose/1.2.0/contrib/completion/bash/docker-compose > docker-compose-completion
+sudo mv docker-compose-completion /etc/bash_completion.d/docker-compose
+
+echo "docker-compose version"
+sudo docker-compose --version
