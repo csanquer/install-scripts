@@ -51,7 +51,7 @@ sudo $aptbin -y install samba samba-doc
 sudo $aptbin -y install samba-tools
 sudo $aptbin -y install manpages-fr manpages-fr-dev manpages-fr-extra build-essential bison
 sudo $aptbin -y install p7zip p7zip-full p7zip-rar lzma unrar rar unace
-sudo $aptbin -y install curl filezilla ncftp lftp rsync subversion subversion-tools git git-extras git-cola git-core git-svn git-email git-gui git-doc mercurial mercurial-git hgsvn cvs cvs2svn screen tmux meld tofrodos diffutils colordiff patch dos2unix
+sudo $aptbin -y install curl filezilla ncftp lftp rsync subversion subversion-tools git git-extras git-flow git-cola git-core git-svn git-email git-gui git-doc mercurial mercurial-git hgsvn cvs cvs2svn screen tmux meld tofrodos diffutils colordiff patch dos2unix
 sudo $aptbin -y install firefox firefox-locale-fr thunderbird thunderbird-locale-fr
 sudo $aptbin -y install thunderbird-gnome-support
 sudo $aptbin -y install chromium-browser chromium-browser-l10n chromium-codecs-ffmpeg webaccounts-chromium-extension
