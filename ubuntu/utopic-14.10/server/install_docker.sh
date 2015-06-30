@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# install docker
-
+# variables
 dockerComposeVersion=1.3.1
 dockerMachineVersion=0.3.0
 
+# choose with package manager
 PS3='Package Manager to use : '
 options=("apt-get" "aptitude")
 select opt in "${options[@]}"
@@ -65,7 +65,8 @@ echo 'autoload -Uz compinit && compinit -i' >> ~/.zshrc
 exec $SHELL -l
 
 # install docker machine
-curl -L https://github.com/docker/machine/releases/download/$dockerMachineVersion/docker-machine_`uname -s`-`uname -m` > docker-machine
+echo "curl -L https://github.com/docker/machine/releases/download/v$dockerMachineVersion/docker-machine_`uname -s`-amd64 > docker-machine"
+curl -L https://github.com/docker/machine/releases/download/v$dockerMachineVersion/docker-machine_`uname -s`-amd64 > docker-machine
 sudo mv docker-machine /usr/local/bin/docker-machine
 sudo chmod +x /usr/local/bin/docker-machine
 
