@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # variables
-dockerComposeVersion=1.3.1
-dockerMachineVersion=0.3.0
+dockerMachineVersion=0.4.1
 
 # choose with package manager
 PS3='Package Manager to use : '
@@ -23,7 +22,7 @@ do
 done
 
 # add official ubuntu docker repository
-sudo $aptbin -y install apt-transport-https
+sudo $aptbin -y install apt-transport-https curl wget
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
 
 echo "deb https://get.docker.com/ubuntu docker main" | sudo tee /etc/apt/sources.list.d/docker.list
@@ -43,31 +42,28 @@ sudo usermod -a -G docker ${USER}
 
 sudo service docker restart
 
-sudo docker --version
-
 # install docker compose
-curl -L https://github.com/docker/compose/releases/download/$dockerComposeVersion/docker-compose-`uname -s`-`uname -m` > docker-compose
-sudo mv docker-compose /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-
-docker-compose --version
+sudo $aptbin -y install python python-pip python-setuptools
+pip install docker-compose
 
 # docker compose bash completion
-curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose --version | awk 'NR==1{print $NF}')/contrib/completion/bash/docker-compose > docker-compose-completion
+curl -s -L https://raw.githubusercontent.com/docker/compose/$(docker-compose --version | awk 'NR==1{print $NF}')/contrib/completion/bash/docker-compose > docker-compose-completion
 sudo mv docker-compose-completion /etc/bash_completion.d/docker-compose
 
 # docker compose zsh completion
 mkdir -p ~/.zsh/completion
-curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose --version | awk 'NR==1{print $NF}')/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
+curl -s -L https://raw.githubusercontent.com/docker/compose/$(docker-compose --version | awk 'NR==1{print $NF}')/contrib/completion/zsh/_docker-compose > ~/.zsh/completion/_docker-compose
+
+# install docker machine
+echo "curl -L https://github.com/docker/machine/releases/download/v$dockerMachineVersion/docker-machine_`uname -s`-amd64 > docker-machine"
+curl -s -L https://github.com/docker/machine/releases/download/v$dockerMachineVersion/docker-machine_`uname -s`-amd64 > docker-machine
+sudo mv docker-machine /usr/local/bin/docker-machine
+sudo chmod +x /usr/local/bin/docker-machine
+
+sudo docker --version
+docker-compose --version
+docker-machine --version
 
 echo 'fpath=(~/.zsh/completion $fpath)' >> ~/.zshrc
 echo 'autoload -Uz compinit && compinit -i' >> ~/.zshrc
 exec $SHELL -l
-
-# install docker machine
-echo "curl -L https://github.com/docker/machine/releases/download/v$dockerMachineVersion/docker-machine_`uname -s`-amd64 > docker-machine"
-curl -L https://github.com/docker/machine/releases/download/v$dockerMachineVersion/docker-machine_`uname -s`-amd64 > docker-machine
-sudo mv docker-machine /usr/local/bin/docker-machine
-sudo chmod +x /usr/local/bin/docker-machine
-
-docker-machine -v
