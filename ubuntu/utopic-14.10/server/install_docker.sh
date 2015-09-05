@@ -64,6 +64,15 @@ sudo docker --version
 docker-compose --version
 docker-machine --version
 
-echo 'fpath=(~/.zsh/completion $fpath)' >> ~/.zshrc
-echo 'autoload -Uz compinit && compinit -i' >> ~/.zshrc
+# configure .zshrc
+# echo 'fpath=(~/.zsh/completion $fpath)' >> ~/.zshrc
+# echo 'autoload -Uz compinit && compinit -i' >> ~/.zshrc
+FILE=~/.zshrc
+# if [ -f "$FILE" ]; then
+    LINE='fpath=(~/.zsh/completion $fpath)'
+    grep -q "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
+
+    LINE='autoload -Uz compinit && compinit -i'
+    grep -q "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
+# fi
 exec $SHELL -l
