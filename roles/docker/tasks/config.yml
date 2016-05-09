@@ -1,0 +1,6 @@
+---
+- name: log into docker registry private servers
+  command: docker login --username={{ item.user }} --password={{ item.password }} --email={{ item.email|default('') }} {{ item.host }}
+  become: true
+  become_user: "{{ item.owner }}"
+  with_items: "{{ docker_registry_auth }}"

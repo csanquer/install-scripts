@@ -1,0 +1,84 @@
+---
+apt_sources_lists_extra:
+    -
+        comment: Google chrome repository
+        file: /etc/apt/sources.list.d/google-chrome.list
+        distrib: ubuntu
+        repositories:
+            -
+                comment:
+                enabled: true
+                src_enabled: false
+                url: 'https://dl.google.com/linux/chrome/deb/'
+                section:  'stable'
+                packages: ['main']
+                section_prefix:
+                section_suffix:
+                archs: ['amd64']
+                # key_server:
+                key_url: https://dl-ssl.google.com/linux/linux_signing_key.pub
+                # key_id:
+
+apt_upgrade_type: dist
+apt_upgrade: true
+
+# list of extra packages to install
+apt_extra_packages:
+  - synaptic
+  - google-chrome-stable
+  - ctags
+  - vim-gnome
+  - zsh
+  - zsh-doc
+  - terminator
+  - gparted
+  - fonts-inconsolata
+  - cups-pdf
+  - samba
+  - bison
+  - unace
+  - filezilla
+  - subversion
+  - subversion-tools
+  - git-flow
+  - git-cola
+  - git-svn
+  - git-email
+  - git-gui
+  - mercurial
+  - mercurial-git
+  - hgsvn
+  - cvs
+  - cvs2svn
+  - meld
+  - firefox
+  - firefox-locale-fr
+  - thunderbird
+  - thunderbird-locale-fr
+  - thunderbird-gnome-support
+  - chromium-browser
+  - chromium-browser-l10n
+  - chromium-codecs-ffmpeg
+  - ubuntu-restricted-extras
+  - keepassx
+  - keepass2
+  - keepass2-doc
+  - libreoffice
+  - graphviz
+  - gimp
+  - inkscape
+  - unity-chromium-extension
+  - gedit-plugins
+  - gedit-developer-plugins
+  - ooo-thumbnailer
+  - pidgin
+  - vlc
+  - openjdk-8-jre
+  - openjdk-8-jdk
+  - icedtea-8-plugin
+  - gnucash
+
+# list of packages to remove
+apt_remove_packages: []
+
+atom_ver: '1.7.3'

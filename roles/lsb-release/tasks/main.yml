@@ -1,0 +1,12 @@
+---
+- include: install_debian.yml
+  when: ansible_os_family == 'Debian'
+  tags:
+  - lsb-release
+  - lsb
+
+- include: install_redhat.yml
+  when: ansible_os_family == 'RedHat'
+  tags:
+  - lsb-release
+  - lsb

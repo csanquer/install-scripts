@@ -1,0 +1,11 @@
+---
+- name: install ansible dependencies
+  apt: name={{ item }}
+       state=latest
+  with_items:
+    - aptitude
+    - lsb-release
+    - apt-transport-https
+    - curl
+    - ca-certificates
+    - wget

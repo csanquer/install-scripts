@@ -1,0 +1,14 @@
+---
+- include: install_debian.yml
+  when: ansible_os_family == 'Debian'
+  tags:
+  - python
+
+- include: install_redhat.yml
+  when: ansible_os_family == 'RedHat'
+  tags:
+  - python
+
+- include: packages.yml
+  tags:
+  - python

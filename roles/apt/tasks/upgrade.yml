@@ -1,0 +1,4 @@
+---
+- name: apt upgrade
+  apt: upgrade={{ apt_upgrade_type|default('safe') }}
+  when: apt_upgrade

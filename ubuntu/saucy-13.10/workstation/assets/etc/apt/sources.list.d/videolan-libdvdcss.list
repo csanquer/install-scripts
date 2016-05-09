@@ -1,3 +1,0 @@
-#wget -q ftp://ftp.videolan.org/pub/debian/videolan-apt.asc -O- | sudo apt-key add -
-deb ftp://ftp.videolan.org/pub/debian/stable ./
-

@@ -1,0 +1,8 @@
+---
+python3_enabled: false
+python_2_pip_bin: pip2
+python_3_pip_bin: pip3
+python_pip2_packages: []
+    # - { name: '', version: '', state: 'present'}
+python_pip3_packages: []
+    # - { name: '', version: '', state: 'present'}

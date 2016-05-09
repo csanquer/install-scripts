@@ -1,0 +1,22 @@
+---
+- name: local install
+  hosts: localhost
+  connection: local
+  become: yes
+  become_method: sudo
+
+  # tasks:
+  #   - name: debug
+  #     debug: var=hostvars[inventory_hostname]
+  #
+  #   - name: install packages
+  #     apt: name={{ item }} state=present
+  #     with_items:
+  #       - vim
+  #       - git
+  #       - bash-completion
+  #       - build-essential
+
+  roles:
+    - docker
+    - mglaman.atom

@@ -1,6 +1,0 @@
-# MariaDB 5.5 repository list - created 2013-03-16 16:19 UTC
-# http://mariadb.org/mariadb/repositories/
-# sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db
-deb http://ftp.igh.cnrs.fr/pub/mariadb/repo/5.5/debian squeeze main
-deb-src http://ftp.igh.cnrs.fr/pub/mariadb/repo/5.5/debian squeeze main
-

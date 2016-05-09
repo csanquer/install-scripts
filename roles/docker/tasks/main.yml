@@ -1,0 +1,13 @@
+---
+- include: install_docker.yml
+  tags:
+  - docker
+  
+- include: install_docker_compose.yml
+  tags:
+  - docker
+  - docker-compose
+
+- include: config.yml
+  tags:
+  - docker

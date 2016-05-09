@@ -1,0 +1,13 @@
+# {{ ansible_managed }}
+# {{ ansible_distribution }} {{ ansible_distribution_version }} {{ ansible_distribution_release }} {{ item.comment|default('repositories')  }}
+
+{% for repo in item.repositories|default([]) %}
+{%   if repo.enabled %}
+# {{ repo.comment|default('') }}
+deb {{ '[arch=' ~ repo.archs|join(',') ~ '] ' if repo.archs|default([])|length > 0 else '' }}{{ repo.url }} {{ repo.section|default(ansible_distribution_release) }} {{ repo.packages|join(' ') }}
+{%     if repo.src_enabled %}
+deb-src {{ '[arch=' ~ repo.archs|join(',') ~ '] ' if repo.archs|default([])|length > 0 else '' }}{{ repo.url }} {{ repo.section|default(ansible_distribution_release) }} {{ repo.packages|join(' ') }}
+{%     endif %}
+
+{%   endif %}
+{% endfor %}

@@ -1,0 +1,46 @@
+---
+- name: copy default sources list
+  template: >
+    src=sources.list.j2
+    dest={{ item.file }}
+    owner=root
+    group=root
+    mode=644
+    backup=yes
+  when: apt_sources_replace and ansible_distribution|lower == item.distrib|lower
+  with_items: "{{ apt_sources_lists_default }}"
+  register: apt_sources_lists_default_result
+
+- name: copy extra sources list
+  template: >
+    src=sources.list.j2
+    dest={{ item.file }}
+    owner=root
+    group=root
+    mode=644
+    backup=yes
+  when: ansible_distribution|lower == item.distrib|lower
+  with_items: "{{ apt_sources_lists_extra }}"
+  register: apt_sources_lists_extra_result
+
+- name: get default repositories keys
+  apt_key: >
+    keyserver={{ item.1.key_server|default(omit)}}
+    id={{ item.1.key_id|default(omit)}}
+    url={{ item.1.key_url|default(omit)}}
+    state=present
+  when: ansible_distribution|lower == item.0.distrib|lower and item.1.enabled|default(false) and (item.1.key_server is defined or item.1.key_url is defined or item.1.key_id is defined)
+  with_subelements:
+    - "{{ apt_sources_lists_default }}"
+    - repositories
+
+- name: get extra repositories keys
+  apt_key: >
+    keyserver={{ item.1.key_server|default(omit)}}
+    id={{ item.1.key_id|default(omit)}}
+    url={{ item.1.key_url|default(omit)}}
+    state=present
+  when: ansible_distribution|lower == item.0.distrib|lower and item.1.enabled|default(false) and (item.1.key_server is defined or item.1.key_url is defined or item.1.key_id is defined)
+  with_subelements:
+    - "{{ apt_sources_lists_extra }}"
+    - repositories

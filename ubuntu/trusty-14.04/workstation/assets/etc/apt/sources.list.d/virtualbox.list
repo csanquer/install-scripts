@@ -1,2 +1,0 @@
-#sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 98AB5139
-deb http://download.virtualbox.org/virtualbox/debian trusty contrib

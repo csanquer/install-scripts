@@ -1,0 +1,25 @@
+---
+- name: install pip python 2 packages
+  pip: >
+    executable={{ python_2_pip_bin|default('pip2') }}
+    name={{ item.name }}
+    version={{ item.version|default(omit) }}
+    state={{ item.state|default('present') }}
+    extra_args="{{ item.extra_args|default(omit) }}"
+    virtualenv="{{ item.virtualenv|default(omit) }}"
+    virtualenv_command="{{ item.virtualenv_command|default(omit) }}"
+    virtualenv_python="{{ item.virtualenv_python|default(omit) }}"
+  with_items: "{{ python_pip2_packages }}"
+
+- name: install pip python 3 packages
+  pip: >
+    executable={{ python_3_pip_bin|default('pip3') }}
+    name={{ item.name }}
+    version={{ item.version|default(omit) }}
+    state={{ item.state|default('present') }}
+    extra_args="{{ item.extra_args|default(omit) }}"
+    virtualenv="{{ item.virtualenv|default(omit) }}"
+    virtualenv_command="{{ item.virtualenv_command|default(omit) }}"
+    virtualenv_python="{{ item.virtualenv_python|default(omit) }}"
+  when: python3_enabled
+  with_items: "{{ python_pip3_packages }}"
