@@ -2,11 +2,16 @@
 - include: install_docker.yml
   tags:
   - docker
-  
+
 - include: install_docker_compose.yml
   tags:
   - docker
   - docker-compose
+
+- include: install_docker_machine.yml
+  tags:
+  - docker
+  - docker-machine
 
 - include: config.yml
   tags:

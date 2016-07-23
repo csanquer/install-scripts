@@ -1,5 +1,7 @@
 ---
 docker_state: latest
 
+docker_machine_version: 0.7.0
+
 docker_registry_auth: []
 # -{ user: '', password: '', email: '' , owner: ''}

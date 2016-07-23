@@ -1,0 +1,27 @@
+---
+- name: get docker machine version
+  shell: "docker-machine --version | cut -d ' ' -f 3 | cut -d ',' -f 1"
+  register: docker_machine_result
+  ignore_errors: yes
+
+- name: set docker-machine version fact
+  set_fact:
+      docker_machine_current_version: "{{ docker_machine_result.stdout|default('') }}"
+  register: docker_machine_version_fact_result
+
+- name: download docker machine
+  get_url: >
+    url='https://github.com/docker/machine/releases/download/v{{ docker_machine_version }}/docker-machine-{{ ansible_system }}-{{ ansible_architecture }}'
+    dest=/usr/local/bin/docker-machine
+    mode=0755
+  when: docker_machine_current_version != docker_machine_version
+
+- name: download docker machine bash completion script
+  get_url: >
+    url='https://raw.githubusercontent.com/docker/machine/v{{ docker_machine_version }}/contrib/completion/bash/{{ item }}.bash'
+    dest=/etc/bash_completion.d/{{ item }}
+    mode=0644
+  with_items:
+    - docker-machine
+    - docker-machine-prompt
+    - docker-machine-wrapper

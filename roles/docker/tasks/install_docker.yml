@@ -8,6 +8,13 @@
   when: ansible_lsb.id == 'Debian' or ansible_lsb.id == 'Ubuntu'
   register: docker_apt_result
 
+- name: ensure right permissions on apt sources list
+  file:
+    path: /etc/apt/sources.list.d/apt_dockerproject_org_repo.list
+    owner: root
+    group: root
+    mode: 'u=rw,g=r,o=r'
+
 - name: apt update list for new docker repository
   apt: update_cache=yes
   when: docker_apt_result.changed
