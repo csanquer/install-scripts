@@ -77,8 +77,9 @@ apt_extra_packages:
   - openjdk-8-jdk
   - icedtea-8-plugin
   - gnucash
+  - gwakeonlan
 
 # list of packages to remove
 apt_remove_packages: []
 
-atom_ver: '1.7.3'
+atom_ver: '1.8.0'
