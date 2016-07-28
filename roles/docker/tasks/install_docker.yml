@@ -4,7 +4,7 @@
   when: ansible_lsb.id == 'Debian' or ansible_lsb.id == 'Ubuntu'
 
 - name: add docker main repository
-  apt_repository: repo='deb {{ docker_apt_url }} {{ ansible_lsb.id|lower }}-{{ ansible_lsb.codename|lower }} main' state=present
+  apt_repository: repo='deb {{ docker_apt_url }} {{ ansible_lsb.id|lower }}-{{ ansible_lsb.codename|lower }} {{ docker_repo_branch|default('main') }}' state=present
   when: ansible_lsb.id == 'Debian' or ansible_lsb.id == 'Ubuntu'
   register: docker_apt_result
 

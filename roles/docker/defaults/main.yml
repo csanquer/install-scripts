@@ -3,5 +3,8 @@ docker_state: latest
 
 docker_machine_version: 0.7.0
 
+# main, testing, or experimental
+docker_repo_branch: main
+
 docker_registry_auth: []
 # -{ user: '', password: '', email: '' , owner: ''}
