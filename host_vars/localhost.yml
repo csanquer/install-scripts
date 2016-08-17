@@ -67,7 +67,11 @@ apt_extra_packages:
   - graphviz
   - gimp
   - inkscape
+  - caffeine
+  - nautilus-dropbox
+  - gnome-control-center
   - unity-chromium-extension
+  - unity-tweak-tool
   - gedit-plugins
   - gedit-developer-plugins
   - ooo-thumbnailer
@@ -82,4 +86,4 @@ apt_extra_packages:
 # list of packages to remove
 apt_remove_packages: []
 
-atom_ver: '1.8.0'
+atom_ver: '1.9.6'
