@@ -1,0 +1,6 @@
+---
+awscli_state: latest
+awsebcli_state: latest
+
+aws_eb_cli_enabled: true
+aws_ecs_cli_enabled: true

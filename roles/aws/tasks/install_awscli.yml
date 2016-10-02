@@ -1,0 +1,22 @@
+---
+- name: install AWS CLI
+  pip: >
+    executable="{{ python_2_pip_bin|default('pip') }}"
+    name=awscli
+    extra_args="{{ '-U' if awscli_state == 'latest' else '' }}"
+    state=present
+
+- name: install AWS Beanstalk cli
+  pip: >
+    executable="{{ python_2_pip_bin|default('pip') }}"
+    name=awsebcli
+    extra_args="{{ '-U' if awsebcli_state == 'latest' else '' }}"
+    state=present
+  when: aws_eb_cli_enabled
+
+- name: install AWS ECS cli
+  get_url:
+    url:  "{{ aws_ecscli_url }}"
+    dest: /usr/local/bin/ecs-cli
+    mode: 0755
+  when: aws_ecs_cli_enabled
