@@ -86,4 +86,24 @@ apt_extra_packages:
 # list of packages to remove
 apt_remove_packages: []
 
-atom_ver: '1.9.6'
+atom_ver: '1.10.2'
+
+dnsmasq_addresses:
+  -
+    domain: localhost
+    ip: 127.0.0.1
+  -
+    domain: dev
+    ip: 127.0.0.1
+  -
+    domain: dev.localhost
+    ip: 127.0.0.1
+  -
+    domain: dev.local
+    ip: 127.0.0.1
+  -
+    domain: local.com
+    ip: 127.0.0.1
+  -
+    domain: localhost.com
+    ip: 127.0.0.1
