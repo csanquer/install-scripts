@@ -8,3 +8,5 @@ docker_repo_branch: main
 
 docker_registry_auth: []
 # -{ user: '', password: '', email: '' , owner: ''}
+
+docker_allowed_user: []

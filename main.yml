@@ -21,4 +21,6 @@
     - docker
     - mglaman.atom
     - dnsmasq
+    - packer
+    - terraform
     - aws

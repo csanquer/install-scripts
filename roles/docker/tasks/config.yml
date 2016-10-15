@@ -4,3 +4,10 @@
   become: true
   become_user: "{{ item.owner }}"
   with_items: "{{ docker_registry_auth }}"
+
+- name: add users to docker group
+  user:
+    name: "{{ item }}"
+    append: yes
+    groups: docker
+  with_items: "{{ docker_allowed_user }}"

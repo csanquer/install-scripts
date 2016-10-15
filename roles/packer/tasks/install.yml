@@ -1,0 +1,13 @@
+---
+- name: download packer binary
+  get_url:
+      url: "{{ packer_base_url }}/{{ packer_version }}/packer_{{ packer_version }}_linux_amd64.zip"
+      dest: /tmp/packer.zip
+      mode: 0644
+      
+
+- name: extract packer binary
+  unarchive:
+    src: /tmp/packer.zip
+    dest: /usr/local/bin/
+    mode: 0755

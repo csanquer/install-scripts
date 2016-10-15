@@ -1,4 +1,10 @@
 ---
+atom_ver: '1.11.1'
+packer_version: '0.10.2'
+
+docker_allowed_user:
+  - charles
+
 apt_sources_lists_extra:
     -
         comment: Google chrome repository
@@ -85,8 +91,6 @@ apt_extra_packages:
 
 # list of packages to remove
 apt_remove_packages: []
-
-atom_ver: '1.10.2'
 
 dnsmasq_addresses:
   -
