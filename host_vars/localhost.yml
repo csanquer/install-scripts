@@ -1,6 +1,7 @@
 ---
-atom_ver: '1.11.1'
-packer_version: '0.10.2'
+atom_ver: '1.11.2'
+packer_version: '0.11.0'
+terraform_version: '0.7.7'
 
 docker_allowed_user:
   - charles

@@ -2,11 +2,11 @@
 - name: download terraform binary
   get_url:
       url: "{{ terraform_base_url }}/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip"
-      dest: /tmp/terraform.zip
+      dest: /tmp/terraform_{{ terraform_version }}.zip
       mode: 0644
 
 - name: extract terraform binary
   unarchive:
-    src: /tmp/terraform.zip
+    src: /tmp/terraform_{{ terraform_version }}.zip
     dest: /usr/local/bin/
     mode: 0755
