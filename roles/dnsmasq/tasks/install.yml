@@ -25,7 +25,7 @@
   notify:
     - restart dnsmasq
 
-- name: disable dnsmasq base in network manager
+- name: disable dnsmasq base in DHCP client
   lineinfile: >
     dest=/etc/dhcp/dhclient.conf
     line='prepend domain-name-servers 127.0.0.1;'
