@@ -3,6 +3,9 @@ atom_ver: '1.11.2'
 packer_version: '0.11.0'
 terraform_version: '0.7.9'
 
+docker_state: latest
+docker_compose_state: latest
+docker_machine_version: 0.8.2
 docker_allowed_user:
   - charles
 

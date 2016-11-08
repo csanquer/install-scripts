@@ -1,7 +1,8 @@
 ---
 docker_state: latest
+docker_compose_state: latest
 
-docker_machine_version: 0.7.0
+docker_machine_version: 0.8.2
 
 # main, testing, or experimental
 docker_repo_branch: main

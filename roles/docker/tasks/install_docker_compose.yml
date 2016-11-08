@@ -1,10 +1,10 @@
 ---
 - name: install docker compose
-  pip: >
-    executable="{{ python_2_pip_bin|default('pip') }}"
-    name=docker-compose
-    extra_args="{{ '-U' if docker_state == 'latest' else '' }}"
-    state=present
+  pip:
+    executable: "{{ python_2_pip_bin|default('pip') }}"
+    name: docker-compose
+    extra_args: "{{ '-U' if docker_compose_state == 'latest' else '' }}"
+    state: present
 
 - name: get docker compose version
   shell: "docker-compose --version | awk 'NR==1{print $NF}'"
@@ -17,8 +17,8 @@
   register: docker_compose_version_fact_result
 
 - name: download docker compose bash completion script
-  get_url: >
-    url='https://raw.githubusercontent.com/docker/compose/{{ docker_compose_current_version }}/contrib/completion/bash/docker-compose'
-    dest=/etc/bash_completion.d/docker-compose
-    mode=0644
+  get_url:
+    url: 'https://raw.githubusercontent.com/docker/compose/{{ docker_compose_current_version }}/contrib/completion/bash/docker-compose'
+    dest: /etc/bash_completion.d/docker-compose
+    mode: 0644
   when: docker_compose_current_version is defined and docker_compose_current_version != ''
