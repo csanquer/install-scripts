@@ -34,6 +34,23 @@ apt_upgrade: true
 
 # list of extra packages to install
 apt_extra_packages:
+  - p7zip-rar
+  - lftp
+  - dos2unix
+  - openssh-blacklist
+  - openssh-blacklist-extra
+  - openssl-blacklist
+  - openssl-blacklist-extra
+  - clamav
+  - clamav-freshclam
+  - vim-doc
+  - trash-cli
+  - mc
+  - manpages-fr
+  - manpages-fr-dev
+  - manpages-fr-extra
+  - git-extras
+  - git-doc
   - synaptic
   - google-chrome-stable
   - ctags
