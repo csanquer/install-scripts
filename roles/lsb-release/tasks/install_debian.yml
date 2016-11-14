@@ -1,3 +1,0 @@
----
-- name: install Debian lsb-release
-  apt: name=lsb-release state=latest

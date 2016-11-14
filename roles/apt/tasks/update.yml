@@ -1,4 +1,0 @@
----
-- name: apt update list
-  apt: update_cache=yes
-       cache_valid_time={{ omit if apt_sources_lists_default_result.changed or apt_sources_lists_extra_result.changed else apt_update_cache_valid_time|default(3600) }}

@@ -1,4 +1,0 @@
----
-- include: install_awscli.yml
-  tags:
-  - aws

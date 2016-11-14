@@ -1,5 +1,0 @@
----
-- include: install.yml
-  when: ansible_distribution == 'Ubuntu'
-  tags:
-    - dnsmasq
