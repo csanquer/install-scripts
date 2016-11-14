@@ -10,8 +10,15 @@ OS supported (currently):
 Install
 -------
 
+clone the repository with submodules
+
+```bash
+git clone --recursive https://github.com/csanquer/install-scripts.git
+```
+
 Just run :
 
 ```bash
+cd install-scripts
 bash install.sh
 ```
