@@ -25,4 +25,4 @@ fi
 
 ansible-galaxy install -r roles.txt -p roles
 
-ansible-playbook main.yml --ask-become-pass -u $user
+ansible-playbook main.yml  -u $user --ask-become-pass
