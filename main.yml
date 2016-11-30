@@ -18,7 +18,9 @@
   #       - build-essential
 
   roles:
+    - locales
     - docker
+    - samba
     - mglaman.atom
     - dnsmasq
     - packer

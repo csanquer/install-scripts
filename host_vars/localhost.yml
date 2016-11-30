@@ -9,6 +9,119 @@ docker_machine_version: 0.8.2
 docker_allowed_user:
   - charles
 
+locale_generate:
+  -
+    lang: 'en_US'
+    charset: 'UTF-8'
+  -
+    lang: 'fr_FR'
+    charset: 'UTF-8'
+
+locale_timezone_continent: Europe
+locale_timezone_city: Paris
+
+locale_default_lang: fr_FR
+locale_default_charset: UTF-8
+
+locale_env:
+  lang: "{{ locale_default_lang }}.{{ locale_default_charset }}"
+  language: "{{ locale_default_lang }}.{{ locale_default_charset }}"
+  lc_all: "{{ locale_default_lang }}.{{ locale_default_charset }}"
+  lc_address: "{{ locale_default_lang }}.{{ locale_default_charset }}"
+  lc_collate: "{{ locale_default_lang }}.{{ locale_default_charset }}"
+  lc_ctype: "{{ locale_default_lang }}.{{ locale_default_charset }}"
+  lc_identification: "{{ locale_default_lang }}.{{ locale_default_charset }}"
+  lc_measurement: "{{ locale_default_lang }}.{{ locale_default_charset }}"
+  lc_messages: "{{ locale_default_lang }}.{{ locale_default_charset }}"
+  lc_monetary: "{{ locale_default_lang }}.{{ locale_default_charset }}"
+  lc_name: "{{ locale_default_lang }}.{{ locale_default_charset }}"
+  lc_numeric: "{{ locale_default_lang }}.{{ locale_default_charset }}"
+  lc_paper: "{{ locale_default_lang }}.{{ locale_default_charset }}"
+  lc_telephone: "{{ locale_default_lang }}.{{ locale_default_charset }}"
+  lc_time: "{{ locale_default_lang }}.{{ locale_default_charset }}"
+  locpath: ~
+
+keyboard_layout_reconfigure: true
+keyboard_layout_code: fr
+
+apt_sources_lists_default:
+    # Debian
+    -
+        comment: Official repositories
+        file: /etc/apt/sources.list
+        distrib: Debian
+        repositories:
+            -
+                comment: 'Main repositories'
+                enabled: true
+                src_enabled: true
+                url: 'http://httpredir.debian.org/debian/'
+                packages: ['main','contrib','non-free']
+                section:  "{{ ansible_distribution_release }}"
+            -
+                comment: 'Updates repositories'
+                enabled: true
+                src_enabled: true
+                url: 'http://httpredir.debian.org/debian/'
+                packages: ['main','contrib','non-free']
+                section:  "{{ ansible_distribution_release }}-updates"
+            -
+                comment: 'Security Updates repositories'
+                enabled: true
+                src_enabled: true
+                url: 'http://security.debian.org/'
+                packages: ['main','contrib','non-free']
+                section:  "{{ ansible_distribution_release }}/updates"
+            -
+                comment: 'Backports repositories'
+                enabled: true
+                src_enabled: true
+                url: 'http://httpredir.debian.org/debian/'
+                packages: ['main','contrib','non-free']
+                section:  "{{ ansible_distribution_release }}-backports"
+
+    # Ubuntu
+    -
+        comment: Official repositories
+        file: /etc/apt/sources.list
+        distrib: Ubuntu
+        repositories:
+            -
+                comment: 'Main repositories'
+                enabled: true
+                src_enabled: true
+                url: 'http://fr.archive.ubuntu.com/ubuntu/'
+                packages: ['main', 'restricted', 'universe', 'multiverse']
+                section:  "{{ ansible_distribution_release }}"
+            -
+                comment: 'Update repositories'
+                enabled: true
+                src_enabled: true
+                url: 'http://fr.archive.ubuntu.com/ubuntu/'
+                packages: ['main', 'restricted', 'universe', 'multiverse']
+                section:  "{{ ansible_distribution_release }}-updates"
+            -
+                comment: 'Security Update repositories'
+                enabled: true
+                src_enabled: true
+                url: 'http://fr.archive.ubuntu.com/ubuntu'
+                packages: ['main', 'restricted', 'universe', 'multiverse']
+                section:  "{{ ansible_distribution_release }}-security"
+            -
+                comment: 'Partner repositories'
+                enabled: true
+                src_enabled: true
+                url: 'http://archive.canonical.com/ubuntu'
+                packages: ['partner']
+                section:  "{{ ansible_distribution_release }}"
+            -
+                comment: 'Backports repositories'
+                enabled: true
+                src_enabled: true
+                url: 'http://fr.archive.ubuntu.com/ubuntu'
+                packages: ['main', 'restricted', 'universe', 'multiverse']
+                section:  "{{ ansible_distribution_release }}-backports"
+
 apt_sources_lists_extra:
     -
         comment: Google chrome repository
@@ -109,6 +222,22 @@ apt_extra_packages:
   - icedtea-8-plugin
   - gnucash
   - gwakeonlan
+
+samba_workgroup: WORKGROUP
+
+samba_users: {}
+  # <user>: <password>
+samba_shares: []
+  # -
+  #   path:
+  #   group: ~
+  #   public: no
+  #   valid_users: []
+  #   write_list: []
+  #   create_mode: '0664'
+  #   force_create_mode: '0664'
+  #   directory_mode: '0775'
+  #   force_directory_mode: '0775'
 
 # list of packages to remove
 apt_remove_packages: []
