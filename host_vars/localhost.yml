@@ -1,7 +1,7 @@
 ---
-atom_ver: '1.12.5'
-packer_version: '0.12.0'
-terraform_version: '0.7.13'
+atom_ver: '1.12.9'
+packer_version: '0.12.1'
+terraform_version: '0.8.2'
 
 docker_state: latest
 docker_compose_state: latest
