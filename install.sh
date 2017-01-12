@@ -1,6 +1,5 @@
 #/bin/bash
 
-
 if [ ! -x "$(command -v lsb_release)" ]; then
     echo 'please install lsb release package'
     if [ -x "$(command -v apt-get)" ]; then
@@ -25,4 +24,4 @@ fi
 
 ansible-galaxy install -r roles.txt -p roles
 
-ansible-playbook main.yml  -u $user --ask-become-pass
+ansible-playbook main.yml  -u $user --ask-become-pass $@
