@@ -7,7 +7,7 @@ docker_state: latest
 docker_compose_state: latest
 docker_machine_version: 0.9.0-rc2
 docker_allowed_user:
-  - charles
+  - csanquer
 
 locale_generate:
   -
@@ -207,8 +207,7 @@ apt_extra_packages:
   - graphviz
   - gimp
   - inkscape
-  - caffeine
-  - nautilus-dropbox
+  # - nautilus-dropbox
   - gnome-control-center
   - unity-chromium-extension
   - unity-tweak-tool
@@ -261,3 +260,50 @@ dnsmasq_addresses:
   -
     domain: localhost.com
     ip: 127.0.0.1
+
+account_users:
+  csanquer:
+    name: csanquer
+    comment: Charles Sanquer
+    # home: # default = /home/<username>
+    # home_mode: #default = 'u=rwx,g=rx,o=rx'
+    # home_owner: # default = <username>
+    # home_group: # default = <username>
+    # no_chown_home: false
+    # system: no # is system user ?
+    # group: # primary group
+    group: csanquer
+    groups:
+      - docker
+      - sudo
+    # append_groups: # default yes
+    shell: /usr/bin/zsh
+    # uid:
+    # lock: false # lock password authentication : only ssh key authentication is allowed
+    # salt: # password salt, default = None
+    config_files:
+      # -
+      #   src: "home/{{ ansible_os_family|lower }}/.bashrc.j2"
+      #   dest: # default in /home/<username>/
+      #   owner: # default = <username>
+      #   group: # default = <username>
+      #   mode: # default = 'u=rw,g=r,o=r'
+      #   backup: yes
+      #   force: no
+      # -
+      #   src: "home/{{ ansible_os_family|lower }}/.bashrc.j2"
+      #   backup: yes
+      #   force: yes
+      # -
+      #   src: home/.bash_aliases.j2
+      #   backup: yes
+      #   force: no
+      -
+        src: "{{ inventory_dir}}/files/home/.gitconfig"
+    color_prompt: yes
+    ssh_agent_autostart: no
+    gitconfig:
+      - { name: 'user.name', option: 'Charles Sanquer'}
+      - { name: 'user.email', option: 'charles.sanquer@gmail.com'}
+  #  bash_aliases:
+  #     <alias>: <command>

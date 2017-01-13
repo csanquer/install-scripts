@@ -5,20 +5,42 @@
   become: yes
   become_method: sudo
 
-  # tasks:
-  #   - name: debug
-  #     debug: var=hostvars[inventory_hostname]
-  #
-  #   - name: install packages
-  #     apt: name={{ item }} state=present
-  #     with_items:
-  #       - vim
-  #       - git
-  #       - bash-completion
-  #       - build-essential
+  pre_tasks:
+    - include_vars: "{{ item }}"
+      with_items:
+        - "{{ inventory_dir }}/vault/secrets.yml"
+      when: item|exists
+      tags:
+        - account
+        - user
+        - sudo
+        - sudoer
+        - skel
+        - sshkeys
+        - samba
+    #
+    # - name: debug
+    #   debug: var=hostvars[inventory_hostname]
+    #   tags:
+    #     - account
+    #     - user
+    #     - sudo
+    #     - sudoer
+    #     - skel
+    #     - sshkeys
+    #     - samba
+    #
+    # - name: install packages
+    #   apt: name={{ item }} state=present
+    #   with_items:
+    #     - vim
+    #     - git
+    #     - bash-completion
+    #     - build-essential
 
   roles:
     - locales
+    - account
     - docker
     - samba
     - mglaman.atom

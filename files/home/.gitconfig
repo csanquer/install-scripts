@@ -1,0 +1,90 @@
+[user]
+    name =
+    email =
+[color]
+    ui = true
+[core]
+    excludesfile = ~/.gitignore
+    autocrlf = input
+    editor = vim
+[alias]
+# show aliases
+    alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t=> \\2/' | sort
+# make the current directory a new repo and commit the first import
+    this = !git init && git add . && git commit -m \"initial commit\"
+# shortcuts
+    cl = clone
+    co = checkout
+    br = branch
+    ci = commit
+    cim = commit -m
+    cia = commit -a
+    ciam = commit -am
+    cip = commit -p
+    ciap = commit -a -p
+    st = status
+    fc = fetch
+    mg = merge
+    rb = rebase
+    rs = reset
+    rv = revert
+    pl = pull
+    plr = pull --rebase
+    ready = rebase -i @{u}
+    ps = push
+    sh = show --color-words
+    df = diff
+    hp = help
+    man = help
+    bs = bisect
+# a common task !!
+    psom = push origin master
+# diff and log helpers
+    staged = diff --cached
+    dfc = diff --cached
+    lg = log --graph
+    lgp = log --graph --pretty=tformat:'%C(yellow)%h%Creset%C(auto)%d%Creset %s %C(blue)(%an)%Creset %Cgreen(%cd - %cr)%Creset' --abbrev-commit --date=local
+    last = log -1 HEAD
+    tip = log -n 1 --abbrev-commit --decorate
+    changelog-html = log --no-merges --date=short --format='<li id=\"%h\"><time>%ad</time> %s</li>'
+    changelog-md-full =  log --no-merges --date=short --format='* %h %ad %s (%cN)'
+    changelog-md =  log --no-merges --date=short --format='* %ad %s'
+# sudmodules management
+    subupdate = submodule update --init --recursive
+    subup = submodule update --init --recursive
+    cloner = clone --recursive
+    clr = clone --recursive
+# add file to gitignore
+    ignore ="!sh -c '([ ! -e .gitignore ] && touch .gitignore) | echo $1 >> .gitignore' -"
+# amend last not pushed commit
+    fix = commit --amend
+    amend = commit --amend
+# remove files from staging area (files to be committed)
+    unstage = reset HEAD --
+    us = reset HEAD --
+# discard changes (modified files but not to be committed)
+    undo = checkout --
+    discard = checkout --
+    ds = checkout --
+    un = checkout --
+# git remove manually deleted files
+    rd  = !git ls-files -z --deleted | xargs -0 git rm
+    cf = cat-file -p
+    # git 1.7 :  git upstream local_branch remote/branch
+    #upstream = branch --set-upstream
+    # git 1.8 : git upstream remote/branch local_branch
+    upstream = branch -u
+    pushtrack = push -u
+[diff]
+    tool = vimdiff
+#    tool = meld
+[merge]
+    tool = vimdiff
+	defaultToUpstream = true
+#    tool = meld3
+[mergetool "meld3"]
+        cmd = $HOME/bin/meld3 $BASE $LOCAL $REMOTE $MERGED
+
+[push]
+#    default = matching
+	default = upstream
