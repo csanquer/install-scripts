@@ -35,5 +35,5 @@ if [ -f "vault/secrets.yml" ];then
 fi
 
 echo "running ansible playbook ..."
-echo "command : 'ansible-playbook main.yml $playbook_options"
+echo "command : ansible-playbook main.yml $playbook_options"
 ansible-playbook main.yml $playbook_options
