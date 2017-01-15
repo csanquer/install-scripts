@@ -1,13 +1,5 @@
 ---
 atom_ver: '1.13.0'
-packer_version: '0.12.1'
-terraform_version: '0.8.4'
-
-docker_state: latest
-docker_compose_state: latest
-docker_machine_version: 0.9.0-rc2
-docker_allowed_user:
-  - csanquer
 
 locale_generate:
   -
@@ -260,6 +252,9 @@ dnsmasq_addresses:
   -
     domain: localhost.com
     ip: 127.0.0.1
+
+docker_allowed_user:
+  - csanquer
 
 account_users:
   csanquer:
