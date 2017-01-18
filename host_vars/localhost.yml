@@ -1,6 +1,4 @@
 ---
-atom_ver: '1.13.0'
-
 locale_generate:
   -
     lang: 'en_US'
@@ -160,7 +158,6 @@ apt_extra_packages:
   - google-chrome-stable
   - ctags
   - vim-gnome
-  - zsh
   - zsh-doc
   - terminator
   - gparted
@@ -254,11 +251,46 @@ dnsmasq_addresses:
     ip: 127.0.0.1
 
 docker_allowed_user:
-  - csanquer
+  - "{{ ansible_ssh_user }}"
+
+atom_users:
+  -
+    user: "{{ ansible_ssh_user }}"
+    packages:
+      - sync-settings
+
+zsh_users:
+  -
+    user: "{{ ansible_ssh_user }}"
+    env_vars:
+      PATH: '$HOME/bin:/usr/local/bin:$PATH'
+    theme: csa
+    # custom theme files to copy to ~/.oh-my-zsh/themes
+    custom_themes:
+      - "{{ inventory_dir}}/files/home/oh-my-zsh/themes/csa.zsh-theme"
+    plugins:
+      - git
+      - gitfast
+      - mercurial
+      - docker
+      - docker-compose
+      - npm
+      - python
+      - debian
+      - screen
+      - tmux
+      - urltools
+      - git-extras
+      - bower
+      - composer
+      - encode64
+      - terraform
+      - vagrant
+      - kubectl
 
 account_users:
-  csanquer:
-    name: csanquer
+  "{{ ansible_ssh_user }}":
+    name: "{{ ansible_ssh_user }}"
     comment: Charles Sanquer
     # home: # default = /home/<username>
     # home_mode: #default = 'u=rwx,g=rx,o=rx'
@@ -267,12 +299,12 @@ account_users:
     # no_chown_home: false
     # system: no # is system user ?
     # group: # primary group
-    group: csanquer
+    group: "{{ ansible_ssh_user }}"
     groups:
       - docker
       - sudo
     # append_groups: # default yes
-    shell: /usr/bin/zsh
+    # shell: /usr/bin/zsh
     # uid:
     # lock: false # lock password authentication : only ssh key authentication is allowed
     # salt: # password salt, default = None

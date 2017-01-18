@@ -19,6 +19,9 @@
         - sshkeys
         - samba
         - atom
+        - oh-my-zsh
+        - zsh
+
     #
     # - name: debug
     #   debug: var=hostvars[inventory_hostname]
@@ -49,3 +52,4 @@
     - terraform
     - aws
     - atom
+    - oh-my-zsh

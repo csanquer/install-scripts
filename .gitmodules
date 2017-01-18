@@ -41,3 +41,6 @@
 [submodule "roles/atom"]
 	path = roles/atom
 	url = https://github.com/csanquer/ansible-role-atom.git
+[submodule "roles/oh-my-zsh"]
+	path = roles/oh-my-zsh
+	url = https://github.com/csanquer/ansible-role-oh-my-zsh.git
