@@ -18,6 +18,7 @@
         - skel
         - sshkeys
         - samba
+        - atom
     #
     # - name: debug
     #   debug: var=hostvars[inventory_hostname]
@@ -43,8 +44,8 @@
     - account
     - docker
     - samba
-    - mglaman.atom
     - dnsmasq
     - packer
     - terraform
     - aws
+    - atom
