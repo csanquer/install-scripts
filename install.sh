@@ -9,7 +9,7 @@ echo
 if [ ! -x "$(command -v lsb_release)" ]; then
     if [ -x "$(command -v apt-get)" ]; then
         echo 'installing lsb release'
-        echo $sudopassword | sudo -S  apt-get install -y lsb-release
+        echo $sudopassword | sudo -S apt-get install -y lsb-release
     # elif [ -x "$(command -v yum)" ]; then
     #    sudo yum install -y redhat-lsb
     fi
@@ -27,10 +27,10 @@ if [ "$distId" = 'Debian' -o "$distId" = 'Ubuntu' ]; then
     if [ ! -x "$(command -v pip)" ]; then
         echo "installing Python and build dependencies ..."
         echo $sudopassword | sudo -S apt-get install -y -q build-essential libffi-dev libssl-dev python python-dev python-setuptools git
-        echo $sudopassword | sudo -S  easy_install -q pip
+        echo $sudopassword | sudo -S easy_install -q pip
     fi
     echo "installing Ansible ..."
-    echo $sudopassword | sudo -S  pip install -q -U ansible
+    echo $sudopassword | sudo -S pip install -q -U ansible
 fi
 
 echo "installing ansible galaxy roles"

@@ -50,6 +50,7 @@
     - dnsmasq
     - packer
     - terraform
+    - vagrant
     - aws
-    - atom
     - oh-my-zsh
+    - atom

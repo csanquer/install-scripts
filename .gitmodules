@@ -44,3 +44,6 @@
 [submodule "roles/oh-my-zsh"]
 	path = roles/oh-my-zsh
 	url = https://github.com/csanquer/ansible-role-oh-my-zsh.git
+[submodule "roles/vagrant"]
+	path = roles/vagrant
+	url = https://github.com/csanquer/ansible-role-vagrant.git
