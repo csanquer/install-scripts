@@ -9,9 +9,9 @@ echo
 if [ ! -x "$(command -v lsb_release)" ]; then
     if [ -x "$(command -v apt-get)" ]; then
         echo 'installing lsb release'
-        echo "$sudopassword\n" | sudo -S apt-get install -y lsb-release
+        echo "$sudopassword\n" | sudo -S -p '' apt-get install -y lsb-release
     # elif [ -x "$(command -v yum)" ]; then
-    #    sudo yum install -y redhat-lsb
+    #    echo "$sudopassword\n" | sudo -S -p '' yum install -y redhat-lsb
     fi
 fi
 
@@ -22,15 +22,14 @@ distRelease=`lsb_release -sr`
 distCodename=`lsb_release -sc`
 
 
-
 if [ "$distId" = 'Debian' -o "$distId" = 'Ubuntu' ]; then
     if [ ! -x "$(command -v pip)" ]; then
         echo "installing Python and build dependencies ..."
-        echo "$sudopassword\n" | sudo -S apt-get install -y -q build-essential libffi-dev libssl-dev python python-dev python-setuptools git
-        echo "$sudopassword\n" | sudo -S easy_install -q pip
+        echo "$sudopassword\n" | sudo -S -p '' apt-get install -y -q build-essential libffi-dev libssl-dev python python-dev python-setuptools git
+        echo "$sudopassword\n" | sudo -S -p '' easy_install -q pip
     fi
     echo "installing Ansible ..."
-    echo "$sudopassword\n" | sudo -S pip install -q -U ansible
+    echo "$sudopassword\n" | sudo -S -p '' pip install -q -U ansible
 fi
 
 echo "installing ansible galaxy roles"
