@@ -44,8 +44,8 @@
 
   roles:
     - locales
-    - account
     - docker
+    - account
     - samba
     - dnsmasq
     - packer
