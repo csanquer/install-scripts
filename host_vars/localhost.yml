@@ -223,6 +223,7 @@ apt_extra_packages:
   - gwakeonlan
   - virtualbox-5.1
   - dkms
+  - sipcalc
 
 samba_workgroup: WORKGROUP
 
@@ -317,7 +318,7 @@ account_users:
       - docker
       - sudo
     # append_groups: # default yes
-    # shell: /usr/bin/zsh
+    shell: /usr/bin/zsh
     # uid:
     # lock: false # lock password authentication : only ssh key authentication is allowed
     # salt: # password salt, default = None
