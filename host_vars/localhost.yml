@@ -224,6 +224,10 @@ apt_extra_packages:
   - virtualbox-5.1
   - dkms
   - sipcalc
+  - jq
+
+python_pip2_packages:
+  - { name: 'jinja2-cli[yaml]'}
 
 samba_workgroup: WORKGROUP
 
@@ -264,6 +268,8 @@ dnsmasq_addresses:
     domain: localhost.com
     ip: 127.0.0.1
 
+
+docker_compose_by_pip: false
 docker_allowed_user:
   - "{{ ansible_ssh_user }}"
 
