@@ -308,6 +308,11 @@ zsh_users:
       - vagrant
       - kubectl
 
+aws_cli_users:
+  - "{{ ansible_ssh_user }}"
+aws_cli_bash_autocompletion: true
+aws_cli_zsh_autocompletion: true
+
 account_users:
   "{{ ansible_ssh_user }}":
     name: "{{ ansible_ssh_user }}"

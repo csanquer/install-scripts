@@ -21,6 +21,7 @@
         - atom
         - oh-my-zsh
         - zsh
+        - aws
 
     #
     # - name: debug
@@ -51,6 +52,6 @@
     - packer
     - terraform
     - vagrant
-    - aws
     - oh-my-zsh
     - atom
+    - aws
