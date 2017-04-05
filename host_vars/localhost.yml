@@ -334,22 +334,22 @@ account_users:
     # lock: false # lock password authentication : only ssh key authentication is allowed
     # salt: # password salt, default = None
     config_files:
-      # -
-      #   src: "home/{{ ansible_os_family|lower }}/.bashrc.j2"
-      #   dest: # default in /home/<username>/
-      #   owner: # default = <username>
-      #   group: # default = <username>
-      #   mode: # default = 'u=rw,g=r,o=r'
-      #   backup: yes
-      #   force: no
-      # -
-      #   src: "home/{{ ansible_os_family|lower }}/.bashrc.j2"
-      #   backup: yes
-      #   force: yes
-      # -
-      #   src: home/.bash_aliases.j2
-      #   backup: yes
-      #   force: no
+      -
+        src: "home/{{ ansible_os_family|lower }}/.bashrc.j2"
+        # dest: # default in /home/<username>/
+        # owner: # default = <username>
+        # group: # default = <username>
+        # mode: # default = 'u=rw,g=r,o=r'
+        backup: yes
+        force: no
+      -
+        src: "home/{{ ansible_os_family|lower }}/.bashrc.j2"
+        backup: yes
+        force: yes
+      -
+        src: home/.bash_aliases.j2
+        backup: yes
+        force: no
       -
         src: "{{ inventory_dir}}/files/home/.gitconfig"
     color_prompt: yes
