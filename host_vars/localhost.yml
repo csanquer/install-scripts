@@ -151,10 +151,10 @@ apt_extra_packages:
   - p7zip-rar
   - lftp
   - dos2unix
-  - openssh-blacklist
-  - openssh-blacklist-extra
-  - openssl-blacklist
-  - openssl-blacklist-extra
+  # - openssh-blacklist
+  # - openssh-blacklist-extra
+  # - openssl-blacklist
+  # - openssl-blacklist-extra
   - clamav
   - clamav-freshclam
   - vim-doc
@@ -268,20 +268,19 @@ dnsmasq_addresses:
     domain: localhost.com
     ip: 127.0.0.1
 
-
 docker_compose_by_pip: false
 docker_allowed_user:
-  - "{{ ansible_ssh_user }}"
+  - "{{ account_default_user }}"
 
 atom_users:
   -
-    user: "{{ ansible_ssh_user }}"
+    user: "{{ account_default_user }}"
     packages:
       - sync-settings
 
 zsh_users:
   -
-    user: "{{ ansible_ssh_user }}"
+    user: "{{ account_default_user }}"
     env_vars:
       PATH: '$HOME/bin:/usr/local/bin:$PATH'
     theme: csa
@@ -309,13 +308,14 @@ zsh_users:
       - kubectl
 
 aws_cli_users:
-  - "{{ ansible_ssh_user }}"
+  - "{{ account_default_user }}"
+
 aws_cli_bash_autocompletion: true
 aws_cli_zsh_autocompletion: true
 
 account_users:
-  "{{ ansible_ssh_user }}":
-    name: "{{ ansible_ssh_user }}"
+  "{{ account_default_user }}":
+    name: "{{ account_default_user }}"
     comment: Charles Sanquer
     # home: # default = /home/<username>
     # home_mode: #default = 'u=rwx,g=rx,o=rx'
@@ -324,7 +324,7 @@ account_users:
     # no_chown_home: false
     # system: no # is system user ?
     # group: # primary group
-    group: "{{ ansible_ssh_user }}"
+    group: "{{ account_default_user }}"
     groups:
       - docker
       - sudo

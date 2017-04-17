@@ -1,7 +1,6 @@
 ---
 - name: local install
   hosts: localhost
-  connection: local
   become: yes
   become_method: sudo
 
@@ -22,26 +21,6 @@
         - oh-my-zsh
         - zsh
         - aws
-
-    #
-    # - name: debug
-    #   debug: var=hostvars[inventory_hostname]
-    #   tags:
-    #     - account
-    #     - user
-    #     - sudo
-    #     - sudoer
-    #     - skel
-    #     - sshkeys
-    #     - samba
-    #
-    # - name: install packages
-    #   apt: name={{ item }} state=present
-    #   with_items:
-    #     - vim
-    #     - git
-    #     - bash-completion
-    #     - build-essential
 
   roles:
     - locales

@@ -28,8 +28,10 @@ if [ "$distId" = 'Debian' -o "$distId" = 'Ubuntu' ]; then
         echo "$sudopassword\n" | sudo -S -p '' apt-get install -y -q build-essential libffi-dev libssl-dev python python-dev python-setuptools git
         echo "$sudopassword\n" | sudo -S -p '' easy_install -q pip
     fi
-    echo "installing Ansible ..."
-    echo "$sudopassword\n" | sudo -S -p '' pip install -q -U ansible
+    if [ ! -x "$(command -v ansible)" ]; then
+        echo "installing Ansible ..."
+        echo "$sudopassword\n" | sudo -S -p '' pip install -q -U ansible
+    fi
 fi
 
 echo "installing ansible galaxy roles"
@@ -42,5 +44,5 @@ if [ -f "vault/secrets.yml" ];then
 fi
 
 echo "running ansible playbook ..."
-echo "command : ansible-playbook main.yml --ask-become-pass $playbook_options"
-ansible-playbook main.yml -e "ansible_become_pass=$sudopassword" $playbook_options
+echo "command : ansible-playbook main.yml --ask-become-pass --extra-vars \"account_default_user=$user\" $playbook_options"
+ansible-playbook main.yml --extra-vars "ansible_become_pass=$sudopassword account_default_user=$user" $playbook_options
