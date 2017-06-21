@@ -8,6 +8,8 @@
     - include_vars: "{{ item }}"
       with_items:
         - "{{ inventory_dir }}/vault/secrets.yml"
+        - "{{ inventory_dir }}/custom_vars.yml"
+
       when: item|exists
       tags:
         - account

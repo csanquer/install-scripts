@@ -1,4 +1,7 @@
 ---
+account_default_user_fullname: John Doe
+account_default_user_email: john.doe@example.com
+
 locale_generate:
   -
     lang: 'en_US'
@@ -316,7 +319,7 @@ aws_cli_zsh_autocompletion: true
 account_users:
   "{{ account_default_user }}":
     name: "{{ account_default_user }}"
-    comment: Charles Sanquer
+    comment: "{{ account_default_user_fullname }}"
     # home: # default = /home/<username>
     # home_mode: #default = 'u=rwx,g=rx,o=rx'
     # home_owner: # default = <username>
@@ -357,7 +360,11 @@ account_users:
     color_prompt: yes
     ssh_agent_autostart: no
     gitconfig:
-      - { name: 'user.name', option: 'Charles Sanquer'}
-      - { name: 'user.email', option: 'charles.sanquer@gmail.com'}
+      -
+        name: 'user.name'
+        option: '{{ account_default_user_fullname }}'
+      -
+        name: 'user.email'
+        option: '{{ account_default_user_email }}'
   #  bash_aliases:
   #     <alias>: <command>

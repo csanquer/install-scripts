@@ -14,11 +14,19 @@ clone the repository with submodules
 
 ```bash
 git clone --recursive https://github.com/csanquer/install-scripts.git
+cd install-scripts
 ```
 
-Just run :
+create a `custom_vars.yml` file like this :
+
+```yml
+---
+account_default_user_fullname: <Your Name>
+account_default_user_email: <your email>
+```
+
+Then just run :
 
 ```bash
-cd install-scripts
-bash install.sh
+./install.sh
 ```
