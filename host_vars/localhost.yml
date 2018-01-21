@@ -97,7 +97,7 @@ apt_sources_lists_default:
                 comment: 'Security Update repositories'
                 enabled: true
                 src_enabled: true
-                url: 'http://fr.archive.ubuntu.com/ubuntu'
+                url: 'http://security.ubuntu.com/ubuntu'
                 packages: ['main', 'restricted', 'universe', 'multiverse']
                 section:  "{{ ansible_distribution_release }}-security"
             -
@@ -151,6 +151,7 @@ apt_upgrade: true
 
 # list of extra packages to install
 apt_extra_packages:
+  # - ack-grep # not in Ubuntu 17.10
   - p7zip-rar
   - lftp
   - dos2unix
@@ -189,7 +190,7 @@ apt_extra_packages:
   - git-email
   - git-gui
   - mercurial
-  - mercurial-git
+  # - mercurial-git
   - hgsvn
   - cvs
   - cvs2svn
@@ -204,24 +205,24 @@ apt_extra_packages:
   - chromium-codecs-ffmpeg
   - ubuntu-restricted-extras
   - keepassx
-  - keepass2
-  - keepass2-doc
+  # - keepass2
+  # - keepass2-doc
   - libreoffice
   - graphviz
   - gimp
   - inkscape
   # - nautilus-dropbox
   - gnome-control-center
-  - unity-chromium-extension
-  - unity-tweak-tool
+  # - unity-chromium-extension
+  # - unity-tweak-tool
   - gedit-plugins
   - gedit-developer-plugins
   - ooo-thumbnailer
   - pidgin
   - vlc
-  - openjdk-8-jre
-  - openjdk-8-jdk
-  - icedtea-8-plugin
+  - openjdk-9-jre
+  - openjdk-9-jdk
+  # - icedtea-9-plugin
   - gnucash
   - gwakeonlan
   - virtualbox-5.1
