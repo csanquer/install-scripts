@@ -143,6 +143,7 @@ apt_sources_lists_extra:
                 src_enabled: false
                 url: 'http://download.virtualbox.org/virtualbox/debian'
                 packages: ['contrib']
+                archs: ['amd64']
                 # key_server:
                 key_url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
                 # key_id:
@@ -220,8 +221,8 @@ apt_extra_packages:
   - ooo-thumbnailer
   - pidgin
   - vlc
-  - openjdk-9-jre
-  - openjdk-9-jdk
+  - openjdk-11-jre
+  - openjdk-11-jdk
   # - icedtea-9-plugin
   - gnucash
   - gwakeonlan
@@ -275,6 +276,16 @@ dnsmasq_addresses:
 docker_compose_by_pip: false
 docker_allowed_user:
   - "{{ account_default_user }}"
+
+docker_debian_dependencies:
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - software-properties-common
+  - acl
+  - cgroup-lite
+  - apparmor
+  - linux-image-extra-virtual
 
 atom_users:
   -
