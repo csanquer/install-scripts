@@ -66,7 +66,7 @@ zstyle ':vcs_info:*:prompt:*' nvcsformats   ""
 
 
 function csa_preexec {
-    case "$(history $HISTCMD)" in
+    case "$2" in
         *git*)
             PR_GIT_UPDATE=1
             ;;
