@@ -25,8 +25,7 @@ distCodename=`lsb_release -sc`
 if [ "$distId" = 'Debian' -o "$distId" = 'Ubuntu' ]; then
     if [ ! -x "$(command -v pip)" ]; then
         echo "installing Python and build dependencies ..."
-        echo "$sudopassword\n" | sudo -S -p '' apt-get install -y -q build-essential libffi-dev libssl-dev python python-dev python-setuptools git
-        echo "$sudopassword\n" | sudo -S -p '' easy_install -q pip
+        echo "$sudopassword\n" | sudo -S -p '' apt-get install -y -q build-essential libffi-dev libssl-dev python python-dev python-pip git
     fi
     if [ ! -x "$(command -v ansible)" ]; then
         echo "installing Ansible ..."
