@@ -34,5 +34,7 @@
     - terraform
     - vagrant
     - oh-my-zsh
+    - kops
+    - kubectl
     - atom
     - aws

@@ -47,3 +47,9 @@
 [submodule "roles/vagrant"]
 	path = roles/vagrant
 	url = https://github.com/csanquer/ansible-role-vagrant.git
+[submodule "roles/kubectl"]
+	path = roles/kubectl
+	url = https://github.com/csanquer/ansible-role-kubectl.git
+[submodule "roles/kops"]
+	path = roles/kops
+	url = https://github.com/csanquer/ansible-role-kops.git
