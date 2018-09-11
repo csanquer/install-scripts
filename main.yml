@@ -34,7 +34,10 @@
     - terraform
     - vagrant
     - oh-my-zsh
+    - kvm
+    - minikube
     - kops
     - kubectl
+    - helm
     - atom
     - aws

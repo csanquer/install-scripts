@@ -380,3 +380,8 @@ account_users:
         option: '{{ account_default_user_email }}'
   #  bash_aliases:
   #     <alias>: <command>
+
+kvm_gui: true
+docker_kvm2_driver: true
+kvm_allowed_user:
+  - "{{ account_default_user }}"

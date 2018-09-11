@@ -53,3 +53,12 @@
 [submodule "roles/kops"]
 	path = roles/kops
 	url = https://github.com/csanquer/ansible-role-kops.git
+[submodule "roles/kvm"]
+	path = roles/kvm
+	url = https://github.com/csanquer/ansible-role-kvm.git
+[submodule "roles/helm"]
+	path = roles/helm
+	url = https://github.com/csanquer/ansible-role-helm.git
+[submodule "roles/minikube"]
+	path = roles/minikube
+	url = https://github.com/csanquer/ansible-role-minikube.git
