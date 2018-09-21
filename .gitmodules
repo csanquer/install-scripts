@@ -62,3 +62,6 @@
 [submodule "roles/minikube"]
 	path = roles/minikube
 	url = https://github.com/csanquer/ansible-role-minikube.git
+[submodule "roles/json_yaml_tools"]
+	path = roles/json_yaml_tools
+	url = https://github.com/csanquer/ansible-role-json-yaml-tools.git

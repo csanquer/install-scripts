@@ -229,7 +229,6 @@ apt_extra_packages:
   - virtualbox-5.1
   - dkms
   - sipcalc
-  - jq
 
 python_pip2_packages:
   - { name: 'jinja2-cli[yaml]'}

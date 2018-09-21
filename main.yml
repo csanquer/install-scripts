@@ -30,6 +30,7 @@
     - account
     - samba
     - dnsmasq
+    - json_yaml_tools
     - packer
     - terraform
     - vagrant
