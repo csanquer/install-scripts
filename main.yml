@@ -10,7 +10,7 @@
         - "{{ inventory_dir }}/vault/secrets.yml"
         - "{{ inventory_dir }}/custom_vars.yml"
 
-      when: item|exists
+      when: item is exists
       tags:
         - account
         - user
@@ -23,6 +23,8 @@
         - oh-my-zsh
         - zsh
         - aws
+        - google-cloud-sdk
+        - gcp-sdk
 
   roles:
     - locales
@@ -42,3 +44,4 @@
     - helm
     - atom
     - aws
+    - google-cloud-sdk

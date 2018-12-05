@@ -65,3 +65,6 @@
 [submodule "roles/json_yaml_tools"]
 	path = roles/json_yaml_tools
 	url = https://github.com/csanquer/ansible-role-json-yaml-tools.git
+[submodule "roles/google-cloud-sdk"]
+	path = roles/google-cloud-sdk
+	url = https://github.com/csanquer/ansible-role-google-cloud-sdk.git
