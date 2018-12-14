@@ -307,6 +307,10 @@ zsh_users:
       - mercurial
       - docker
       - docker-compose
+      - docker-machine
+      - kops
+      - kubectl
+      - minikube
       - npm
       - python
       - debian
