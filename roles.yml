@@ -1,1 +1,5 @@
 ---
+- src: jdauphant.sublimetext
+  version: v1.2.2
+- src: gantsign.atom
+  version: 2.0.1

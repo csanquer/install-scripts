@@ -1,4 +1,5 @@
-/roles/mglaman.atom/
 /vault/
 main.retry
 /custom_vars.yml
+/roles/jdauphant.sublimetext/
+/roles/gantsign.atom/

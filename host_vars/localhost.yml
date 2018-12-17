@@ -287,10 +287,11 @@ docker_debian_dependencies:
   - linux-image-extra-virtual
 
 atom_users:
-  -
-    user: "{{ account_default_user }}"
-    packages:
+  - username: "{{ account_default_user }}" # Unix user name
+    atom_packages:
       - sync-settings
+    # atom_config: # The config (in YAML not CSON)
+    # atom_config_overwrite: yes # By default the config file will not be overwritten
 
 zsh_users:
   -
@@ -388,3 +389,6 @@ kvm_gui: true
 docker_kvm2_driver: true
 kvm_allowed_user:
   - "{{ account_default_user }}"
+
+sublimetext_dl_source: "https://download.sublimetext.com"
+sublimetext_build: 3176
