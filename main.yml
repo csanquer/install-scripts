@@ -42,10 +42,16 @@
     - kops
     - kubectl
     - helm
+    - aws
+    - google-cloud-sdk
     - role: gantsign.atom
       users: "{{ atom_users }}"
       tags:
         - atom
-    - jdauphant.sublimetext
-    - aws
-    - google-cloud-sdk
+    - role: ngetchell.vscode
+      tags:
+        - vscode
+    - role: jdauphant.sublimetext
+      tags:
+        - sublimetext
+        - sublime
