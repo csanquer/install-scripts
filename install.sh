@@ -36,7 +36,7 @@ fi
 echo "installing ansible galaxy roles"
 ansible-galaxy install -r roles.yml -p roles
 
-playbook_options="-u $user $@"
+playbook_options="--user $user $@"
 
 if [ -f "vault/secrets.yml" ];then
     playbook_options="$playbook_options --ask-vault-pass"
@@ -44,4 +44,4 @@ fi
 
 echo "running ansible playbook ..."
 echo "command : ansible-playbook main.yml --ask-become-pass --extra-vars \"account_default_user=$user\" $playbook_options"
-ansible-playbook main.yml --extra-vars "ansible_become_pass=$sudopassword account_default_user=$user" $playbook_options
+ansible-playbook main.yml --extra-vars "ansible_become_pass=$sudopassword ansible_become_user=root account_default_user=$user" $playbook_options
