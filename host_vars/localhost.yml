@@ -229,6 +229,7 @@ apt_extra_packages:
   - virtualbox-5.1
   - dkms
   - sipcalc
+  - menulibre
 
 python_pip2_packages:
   - { name: 'jinja2-cli[yaml]'}
@@ -382,6 +383,9 @@ account_users:
       -
         name: 'user.email'
         option: '{{ account_default_user_email }}'
+      -
+        name: 'credential.helper'
+        option: 'store'
   #  bash_aliases:
   #     <alias>: <command>
 
