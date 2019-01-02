@@ -44,4 +44,4 @@ fi
 
 echo "running ansible playbook ..."
 echo "command : ansible-playbook main.yml --ask-become-pass --extra-vars \"account_default_user=$user\" $playbook_options"
-ansible-playbook main.yml --extra-vars "ansible_become_pass=$sudopassword ansible_become_user=root account_default_user=$user" $playbook_options
+ansible-playbook main.yml --extra-vars "ansible_become_pass=$sudopassword account_default_user=$user" $playbook_options
