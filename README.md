@@ -17,7 +17,7 @@ git clone --recursive https://github.com/csanquer/install-scripts.git
 cd install-scripts
 ```
 
-create a `custom_vars.yml` file like this :
+copy `custom_vars.yml.dist` to `custom_vars.yml` and edit it like this :
 
 ```yml
 ---

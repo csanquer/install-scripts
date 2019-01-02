@@ -1,0 +1,7 @@
+---
+account_default_user_fullname: John Doe
+account_default_user_email: john.doe@example.com
+
+# packer_version: latest
+# terraform_version: latest
+# vagrant_version: latest
