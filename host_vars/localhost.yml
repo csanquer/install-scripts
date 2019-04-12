@@ -297,9 +297,10 @@ atom_users:
 zsh_users:
   -
     user: "{{ account_default_user }}"
-    env_vars:
-      PATH: '$HOME/bin:/usr/local/bin:$PATH'
+    env_vars: "{{ account_default_user_env_vars }}"
     theme: csa
+    # backup: yes
+    # force: yes
     # custom theme files to copy to ~/.oh-my-zsh/themes
     custom_themes:
       - "{{ inventory_dir}}/files/home/oh-my-zsh/themes/csa.zsh-theme"
@@ -334,7 +335,7 @@ aws_cli_bash_autocompletion: true
 aws_cli_zsh_autocompletion: true
 
 account_users:
-  "{{ account_default_user }}":
+  default_user:
     name: "{{ account_default_user }}"
     comment: "{{ account_default_user_fullname }}"
     # home: # default = /home/<username>
@@ -350,6 +351,7 @@ account_users:
       - sudo
     # append_groups: # default yes
     shell: /usr/bin/zsh
+    env_vars: "{{ account_default_user_env_vars }}"
     # uid:
     # lock: false # lock password authentication : only ssh key authentication is allowed
     # salt: # password salt, default = None
@@ -369,7 +371,7 @@ account_users:
       -
         src: home/.bash_aliases.j2
         backup: yes
-        force: no
+        force: yes
       -
         src: "{{ inventory_dir}}/files/home/.gitconfig"
       -
@@ -388,6 +390,15 @@ account_users:
         option: 'store'
   #  bash_aliases:
   #     <alias>: <command>
+
+account_default_user_env_vars:
+  -
+    name: GOPATH
+    value: "$HOME/go"
+  -
+    name: PATH
+    value: "$HOME/bin:$GOPATH/bin:/usr/local/bin:$PATH"
+
 
 kvm_gui: true
 docker_kvm2_driver: true
