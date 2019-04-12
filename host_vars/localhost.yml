@@ -130,7 +130,7 @@ apt_sources_lists_extra:
                 packages: ['main']
                 archs: ['amd64']
                 # key_server:
-                key_url: https://dl-ssl.google.com/linux/linux_signing_key.pub
+                key_url: https://dl.google.com/linux/linux_signing_key.pub
                 # key_id:
     -
         comment: Virtualbox repository
@@ -171,7 +171,6 @@ apt_extra_packages:
   - git-extras
   - git-doc
   - synaptic
-  - google-chrome-stable
   - ctags
   - vim-gnome
   - zsh-doc
@@ -201,11 +200,12 @@ apt_extra_packages:
   - thunderbird
   - thunderbird-locale-fr
   - thunderbird-gnome-support
+  - google-chrome-stable
   - chromium-browser
   - chromium-browser-l10n
   - chromium-codecs-ffmpeg
   - ubuntu-restricted-extras
-  - keepassx
+  - keepassxc
   # - keepass2
   # - keepass2-doc
   - libreoffice
