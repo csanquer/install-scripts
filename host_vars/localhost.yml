@@ -405,7 +405,7 @@ docker_kvm2_driver: true
 kvm_allowed_user:
   - "{{ account_default_user }}"
 
-google_cloud_sdk_install: manual
+google_cloud_sdk_install: apt
 
 google_cloud_sdk_users:
   -
