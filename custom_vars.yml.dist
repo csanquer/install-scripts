@@ -1,6 +1,8 @@
 ---
 account_default_user_fullname: John Doe
 account_default_user_email: john.doe@example.com
+# got by `gpg --list-secret-keys --keyid-format LONG`
+account_git_gpg_key_id: ''
 
 # packer_version: latest
 # terraform_version: latest

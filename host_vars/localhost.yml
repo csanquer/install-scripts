@@ -1,6 +1,8 @@
 ---
 account_default_user_fullname: John Doe
 account_default_user_email: john.doe@example.com
+# got by `gpg --list-secret-keys --keyid-format LONG`
+account_git_gpg_key_id:
 
 locale_generate:
   -
@@ -388,6 +390,12 @@ account_users:
       -
         name: 'credential.helper'
         option: 'store'
+      -
+        name: 'user.signingkey'
+        option: "{{ account_git_gpg_key_id|default('') }}"
+      -
+        name: 'commit.gpgsign'
+        option: "{{ 'true' if account_git_gpg_key_id|default('') != '' else 'false' }}"
   #  bash_aliases:
   #     <alias>: <command>
 
