@@ -166,10 +166,12 @@ apt_extra_packages:
   - clamav-freshclam
   - vim-doc
   - trash-cli
+  - most
   - mc
   - manpages-fr
   - manpages-fr-dev
   - manpages-fr-extra
+  - tig
   - git-extras
   - git-doc
   - synaptic
@@ -323,7 +325,9 @@ zsh_users:
       - tmux
       - urltools
       - git-extras
-      - bower
+      # - bower
+      - debian
+      - ansible
       - composer
       - encode64
       - terraform
@@ -407,13 +411,20 @@ account_default_user_env_vars:
     name: PATH
     value: "$HOME/bin:$GOPATH/bin:/usr/local/bin:$PATH"
 
+account_ssh_known_hosts:
+  -
+    user: "{{ account_default_user }}"
+    hosts:
+      - github.com
+      - gitlab.com
+
 
 kvm_gui: true
 docker_kvm2_driver: true
 kvm_allowed_user:
   - "{{ account_default_user }}"
 
-google_cloud_sdk_install: apt
+google_cloud_sdk_install: manual
 
 google_cloud_sdk_users:
   -
