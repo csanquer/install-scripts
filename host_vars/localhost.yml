@@ -405,11 +405,14 @@ account_users:
 
 account_default_user_env_vars:
   -
+    name: GOROOT
+    value: "{{ golang_install_dir }}"
+  -
     name: GOPATH
-    value: "$HOME/go"
+    value: "{{ golang_gopath }}"
   -
     name: PATH
-    value: "$HOME/bin:$GOPATH/bin:/usr/local/bin:$PATH"
+    value: "$HOME/bin:$GOPATH/bin:$GOROOT/bin:/usr/local/bin:$PATH"
 
 account_ssh_known_hosts:
   -
@@ -434,3 +437,10 @@ google_cloud_sdk_users:
 
 sublimetext_dl_source: "https://download.sublimetext.com"
 sublimetext_build: 3176
+
+# Go language SDK version number
+golang_version: '1.13.1'
+golang_mirror: 'https://storage.googleapis.com/golang'
+golang_install_dir: '/opt/go/{{ golang_version }}'
+golang_download_dir: "{{ x_ansible_download_dir | default(ansible_env.HOME + '/.ansible/tmp/downloads') }}"
+golang_gopath: "$HOME/go"

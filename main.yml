@@ -45,6 +45,9 @@
     - helm
     - aws
     - google-cloud-sdk
+    - role: gantsign.golang
+      tags:
+        - golang
     - role: gantsign.atom
       users: "{{ atom_users }}"
       tags:

@@ -4,3 +4,5 @@ main.retry
 /roles/jdauphant.sublimetext/
 /roles/gantsign.atom/
 /roles/ngetchell.vscode/
+roles/gantsign.golang/
+.vscode/
