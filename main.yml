@@ -55,7 +55,7 @@
     - role: ngetchell.vscode
       tags:
         - vscode
-    - role: jdauphant.sublimetext
-      tags:
-        - sublimetext
-        - sublime
+    # - role: jdauphant.sublimetext
+    #   tags:
+    #     - sublimetext
+    #     - sublime
