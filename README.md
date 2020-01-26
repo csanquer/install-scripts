@@ -1,8 +1,8 @@
 Charles Sanquer's desktop install ansible configuration
 =======================================================
 
-* Main Gitlab repository https://gitlab.com/csanquer/install-scripts/
-* Read Only GIthub Mirror https://github.com/csanquer/install-scripts.git
+* Main Gitlab repository https://gitlab.com/csanquer/install-scripts
+* Read Only GIthub Mirror https://github.com/csanquer/install-scripts
 
 Ansible configuration to setup my desktop development environment.
 
