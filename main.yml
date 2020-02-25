@@ -26,6 +26,11 @@
         - aws
         - google-cloud-sdk
         - gcp-sdk
+        - terraform
+        - packer
+        - kops
+        - kubectl
+        - helm
 
   roles:
     - locales
