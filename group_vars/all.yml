@@ -302,6 +302,10 @@ zsh_users:
   -
     user: "{{ account_default_user }}"
     env_vars: "{{ account_default_user_env_vars }}"
+    disable_auto_update: false
+    disable_update_prompt: true
+    hyphen_insensitive: true
+    case_insensitive: false
     theme: csa
     # backup: yes
     # force: yes
