@@ -219,8 +219,7 @@ apt_extra_packages:
   - inkscape
   # - nautilus-dropbox
   - gnome-control-center
-  # - unity-chromium-extension
-  # - unity-tweak-tool
+  - gnome-tweak-tool
   - gedit-plugins
   - ooo-thumbnailer
   - pidgin
@@ -229,7 +228,7 @@ apt_extra_packages:
   - openjdk-11-jdk
   # - icedtea-9-plugin
   - gnucash
-  - virtualbox-5.1
+  - virtualbox-6.1
   - dkms
   - sipcalc
   - menulibre
