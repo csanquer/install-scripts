@@ -34,7 +34,7 @@ if [ "$distId" = 'Debian' -o "$distId" = 'Ubuntu' ]; then
 fi
 
 echo "installing ansible galaxy roles"
-ansible-galaxy install -r roles.yml -p roles
+ansible-galaxy role install -r roles.yml -p roles -g
 
 playbook_options="--user $user $@"
 
