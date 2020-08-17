@@ -450,4 +450,4 @@ golang_install_dir: '/opt/go/{{ golang_version }}'
 golang_download_dir: "{{ x_ansible_download_dir | default(ansible_env.HOME + '/.ansible/tmp/downloads') }}"
 golang_gopath: "$HOME/go"
 
-helm_version: "2.16.1"
+helm_version: "3.3.0"
