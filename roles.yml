@@ -1,12 +1,16 @@
 ---
 - src: jdauphant.sublimetext
-  version: v1.2.2
+  version: "v1.2.2"
 - src: gantsign.atom
-  version: 2.0.1
+  version: "2.0.1"
 - src: gantsign.golang
-  version: 2.4.3
+  version: "2.4.3"
+- src: geerlingguy.nodejs
+  version: "5.1.1"
+- src: oefenweb.yarn
+  version: "v1.0.42"
 - src: ngetchell.vscode
-  version: v1.0.3
+  version: "v1.0.3"
 - src: git@gitlab.com:csanquer-apps/ansible/roles/ansible-role-account.git
   scm: git
   version: master

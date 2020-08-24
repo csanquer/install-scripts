@@ -53,6 +53,15 @@
     - role: gantsign.golang
       tags:
         - golang
+    - role: geerlingguy.nodejs
+      tags:
+        - nodejs
+        - node
+    - role: oefenweb.yarn
+      tags:
+        - nodejs
+        - node
+        - yarn
     - role: gantsign.atom
       users: "{{ atom_users }}"
       tags:
