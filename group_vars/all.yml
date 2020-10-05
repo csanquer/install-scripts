@@ -454,4 +454,4 @@ nodejs_version: "14.x"
 nodejs_npm_global_packages:
  - name: meta
 
-helm_version: "3.3.0"
+helm_version: "3.3.4"
