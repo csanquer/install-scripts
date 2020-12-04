@@ -454,4 +454,6 @@ nodejs_version: "14.x"
 nodejs_npm_global_packages:
  - name: meta
 
-helm_version: "3.3.4"
+terraform_version: 0.13.5
+
+helm_version: "3.4.1"
