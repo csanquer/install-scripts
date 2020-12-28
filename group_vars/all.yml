@@ -457,3 +457,6 @@ nodejs_npm_global_packages:
 terraform_version: 0.13.5
 
 helm_version: "3.4.1"
+
+aws_ecs_cli_enabled: false
+aws_eb_cli_enabled: false
