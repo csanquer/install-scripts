@@ -454,9 +454,9 @@ nodejs_version: "14.x"
 nodejs_npm_global_packages:
  - name: meta
 
-terraform_version: 0.13.5
+# terraform_version: 0.14.4
 
-helm_version: "3.4.1"
+helm_version: "3.4.2"
 
 aws_ecs_cli_enabled: false
 aws_eb_cli_enabled: false
