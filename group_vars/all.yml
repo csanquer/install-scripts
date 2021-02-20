@@ -444,7 +444,8 @@ sublimetext_dl_source: "https://download.sublimetext.com"
 sublimetext_build: 3176
 
 # Go language SDK version number
-golang_version: '1.13.1'
+golang_version: '1.16'
+golang_redis_sha256sum: '013a489ebb3e24ef3d915abe5b94c3286c070dfe0818d5bca8108f1d6e8440d2'
 golang_mirror: 'https://storage.googleapis.com/golang'
 golang_install_dir: '/opt/go/{{ golang_version }}'
 golang_download_dir: "{{ x_ansible_download_dir | default(ansible_env.HOME + '/.ansible/tmp/downloads') }}"
@@ -456,7 +457,7 @@ nodejs_npm_global_packages:
 
 # terraform_version: 0.14.4
 
-helm_version: "3.4.2"
+helm_version: "3.5.2"
 
 aws_ecs_cli_enabled: false
 aws_eb_cli_enabled: false
