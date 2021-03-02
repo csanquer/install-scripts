@@ -197,7 +197,7 @@ apt_extra_packages:
   - git-gui
   - mercurial
   # - mercurial-git
-  - hgsvn
+  # - hgsvn
   - cvs
   - meld
   - firefox
