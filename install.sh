@@ -29,7 +29,7 @@ if [ "$distId" = 'Debian' -o "$distId" = 'Ubuntu' ]; then
     fi
     if [ ! -x "$(command -v ansible)" ]; then
         echo "installing Ansible ..."
-        echo "$sudopassword\n" | sudo -S -p '' pip3 install -q -U ansible jmespath
+        echo "$sudopassword\n" | sudo -S -p '' pip3 install -q -U 'ansible>=3.0' jmespath
     fi
 fi
 
