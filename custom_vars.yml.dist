@@ -1,8 +1,26 @@
 ---
 account_default_user_fullname: John Doe
 account_default_user_email: john.doe@example.com
+account_pro_user_email:
 # got by `gpg --list-secret-keys --keyid-format LONG`
 account_git_gpg_key_id: ''
+account_git_pro_gpg_key_id:
+
+git_includeifs:
+    -
+        path: "~/git/perso/"
+        file: ".gitconfig-perso"
+        config:
+        user:
+            email: '{{ account_default_user_email }}'
+            signingkey: "{{ account_git_gpg_key_id|default('') }}"
+    -
+        path: "~/git/pro/"
+        file: ".gitconfig-pro"
+        config:
+        user:
+            email: '{{ account_pro_user_email }}'
+            signingkey: "{{ account_git_pro_gpg_key_id|default('') }}"
 
 # packer_version: latest
 # terraform_version: latest

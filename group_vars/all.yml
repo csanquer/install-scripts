@@ -1,8 +1,11 @@
 ---
 account_default_user_fullname: John Doe
 account_default_user_email: john.doe@example.com
+account_pro_user_email:
 # got by `gpg --list-secret-keys --keyid-format LONG`
 account_git_gpg_key_id:
+account_git_pro_gpg_key_id:
+gitdir_pro: ~/git/pro/
 
 locale_generate:
   -
@@ -383,28 +386,83 @@ account_users:
         src: home/.bash_aliases.j2
         backup: yes
         force: yes
-      -
-        src: "{{ inventory_dir}}/files/home/.gitconfig"
+      # -
+      #   src: "{{ inventory_dir}}/files/home/.gitconfig"
       -
         src: "{{ inventory_dir}}/files/home/.gitignore"
     color_prompt: yes
     ssh_agent_autostart: no
     gitconfig:
-      -
-        name: 'user.name'
-        option: '{{ account_default_user_fullname }}'
-      -
-        name: 'user.email'
-        option: '{{ account_default_user_email }}'
-      -
-        name: 'credential.helper'
-        option: 'store'
-      -
-        name: 'user.signingkey'
-        option: "{{ account_git_gpg_key_id|default('') }}"
-      -
-        name: 'commit.gpgsign'
-        option: "{{ 'true' if account_git_gpg_key_id|default('') != '' else 'false' }}"
+      raw_config:
+        'mergetool "meld3"':
+          cmd: "$HOME/bin/meld3 $BASE $LOCAL $REMOTE $MERGED"
+      config:
+        -
+          name: 'user.name'
+          option: '{{ account_default_user_fullname }}'
+        -
+          name: 'credential.helper'
+          option: 'store'
+        -
+          name: 'commit.gpgsign'
+          option: "{{ 'true' if account_git_gpg_key_id|default('') else 'false' }}"
+        -
+          name: 'core.excludesfile'
+          option: '~/.gitignore'
+        -
+          name: 'core.autocrlf'
+          option: 'input'
+        -
+          name: 'core.editor'
+          option: 'vim'
+        -
+          name: 'credential.helper'
+          option: 'store'
+        -
+          name: 'diff.tool'
+          option: 'vimdiff'
+        -
+          name: 'merge.vimdiff'
+          option: 'vimdiff'
+        -
+          name: 'merge.defaultToUpstream'
+          option: 'true'
+        -
+          name: 'push.default'
+          option: 'upstream'
+
+        ## git_config file scope is currently bugged
+        # -
+        #   name: 'user.email'
+        #   option: '{{ account_default_user_email }}'
+        #   file: "~/.gitconfig-perso"
+        #   scope: file
+        # -
+        #   name: 'user.signingkey'
+        #   option: "{{ account_git_gpg_key_id|default('') }}"
+        #   file: ".gitconfig-perso"
+        #   scope: file
+        # -
+        #   name: 'user.email'
+        #   option: '{{ account_pro_user_email }}'
+        #   file: ".gitconfig-pro"
+        #   scope: file
+        # -
+        #   name: 'user.signingkey'
+        #   option: "{{ account_git_pro_gpg_key_id|default('') }}"
+        #   file: ".gitconfig-pro"
+        #   scope: file
+      includeifs: "{{ git_includeifs }}"
+
+# ; include for all repositories inside $HOME/git/perso
+# [includeIf "gitdir:~/git/perso/"]
+#   path = .gitconfig-perso
+
+# ; include for all repositories inside $HOME/git/d_aim
+# [includeIf "gitdir:~/git/d_aim/"]
+#   path = .gitconfig-daim
+
+
   #  bash_aliases:
   #     <alias>: <command>
 

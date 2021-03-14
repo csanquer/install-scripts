@@ -6,7 +6,8 @@
 
 
   pre_tasks:
-    - include_vars: "{{ item }}"
+    - name: import custom variables
+      include_vars: "{{ item }}"
       with_items:
         - "{{ inventory_dir }}/vault/secrets.yml"
         - "{{ inventory_dir }}/custom_vars.yml"
@@ -15,6 +16,7 @@
       tags:
         - account
         - user
+        - gitconfig
         - sudo
         - sudoer
         - skel
