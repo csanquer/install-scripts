@@ -30,6 +30,8 @@
         - gcp-sdk
         - terraform
         - packer
+        - vault
+        - blackbox
         - kops
         - kubectl
         - helm
@@ -43,6 +45,8 @@
     - json_yaml_tools
     - packer
     - terraform
+    - vault
+    - blackbox
     - vagrant
     - oh-my-zsh
     - kvm

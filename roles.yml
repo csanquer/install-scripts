@@ -63,6 +63,14 @@
   scm: git
   version: master
   name: terraform
+- src: git@gitlab.com:csanquer-apps/ansible/roles/ansible-role-vault.git
+  scm: git
+  version: master
+  name: vault
+- src: git@gitlab.com:csanquer-apps/ansible/roles/ansible-role-blackbox.git
+  scm: git
+  version: master
+  name: blackbox
 - src: git@gitlab.com:csanquer-apps/ansible/roles/ansible-role-oh-my-zsh.git
   scm: git
   version: master
