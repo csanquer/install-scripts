@@ -41,7 +41,7 @@
   name: nfs
 - src: git@gitlab.com:csanquer-apps/ansible/roles/ansible-role-packages.git
   scm: git
-  version: master
+  version: main
   name: packages
 - src: git@gitlab.com:csanquer-apps/ansible/roles/ansible-role-packer.git
   scm: git
