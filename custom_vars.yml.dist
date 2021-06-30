@@ -11,16 +11,16 @@ git_includeifs:
         path: "~/git/perso/"
         file: ".gitconfig-perso"
         config:
-        user:
-            email: '{{ account_default_user_email }}'
-            signingkey: "{{ account_git_gpg_key_id|default('') }}"
+            user:
+                email: '{{ account_default_user_email }}'
+                signingkey: "{{ account_git_gpg_key_id|default('') }}"
     -
         path: "~/git/pro/"
         file: ".gitconfig-pro"
         config:
-        user:
-            email: '{{ account_pro_user_email }}'
-            signingkey: "{{ account_git_pro_gpg_key_id|default('') }}"
+            user:
+                email: '{{ account_pro_user_email }}'
+                signingkey: "{{ account_git_pro_gpg_key_id|default('') }}"
 
 # packer_version: latest
 # terraform_version: latest
