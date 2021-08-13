@@ -513,7 +513,7 @@ nodejs_version: "14.x"
 nodejs_npm_global_packages:
  - name: meta
 
-helm_version: "3.6.2"
+helm_version: "3.6.3"
 
 aws_ecs_cli_enabled: false
 aws_eb_cli_enabled: false
