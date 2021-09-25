@@ -502,8 +502,8 @@ sublimetext_dl_source: "https://download.sublimetext.com"
 sublimetext_build: 3176
 
 # Go language SDK version number
-golang_version: '1.16.7'
-golang_redis_sha256sum: '7fe7a73f55ba3e2285da36f8b085e5c0159e9564ef5f63ee0ed6b818ade8ef04'
+golang_version: '1.17.1'
+golang_redis_sha256sum: 'dab7d9c34361dc21ec237d584590d72500652e7c909bf082758fb63064fca0ef'
 golang_mirror: 'https://storage.googleapis.com/golang'
 golang_install_dir: '/opt/go/{{ golang_version }}'
 golang_download_dir: "{{ x_ansible_download_dir | default(ansible_env.HOME + '/.ansible/tmp/downloads') }}"
@@ -511,7 +511,8 @@ golang_gopath: "$HOME/go"
 
 nodejs_version: "14.x"
 nodejs_npm_global_packages:
- - name: meta
+  - name: yarn
+  - name: meta
 
 helm_version: "3.6.3"
 

@@ -7,8 +7,6 @@
   version: "2.8.2"
 - src: geerlingguy.nodejs
   version: "5.1.1"
-- src: oefenweb.yarn
-  version: "v1.0.46"
 - src: ngetchell.vscode
   version: "v1.0.3"
 - src: git@gitlab.com:csanquer-apps/ansible/roles/ansible-role-account.git
