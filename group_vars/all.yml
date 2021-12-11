@@ -514,7 +514,7 @@ nodejs_npm_global_packages:
   - name: yarn
   - name: meta
 
-helm_version: "3.6.3"
+helm_version: "3.7.2"
 
 aws_ecs_cli_enabled: false
 aws_eb_cli_enabled: false
