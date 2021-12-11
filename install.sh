@@ -25,11 +25,11 @@ distCodename=`lsb_release -sc`
 if [ "$distId" = 'Debian' -o "$distId" = 'Ubuntu' ]; then
     if [ ! -x "$(command -v pip3)" ]; then
         echo "installing Python and build dependencies ..."
-        echo "$sudopassword\n" | sudo -S -p '' apt-get install -y -q build-essential libffi-dev libssl-dev python3 python3-dev python3-pip git
+        echo "$sudopassword" | sudo -S -p '' apt-get install -y -q build-essential libffi-dev libssl-dev python3 python3-dev python3-pip git
     fi
     if [ ! -x "$(command -v ansible)" ]; then
         echo "installing Ansible ..."
-        echo "$sudopassword\n" | sudo -S -p '' pip3 install -q -U 'ansible>=3.0' jmespath
+        echo "$sudopassword" | sudo -S -p '' pip3 install -q -U 'ansible>=3.0' jmespath
     fi
 fi
 
