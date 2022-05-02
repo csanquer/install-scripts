@@ -510,7 +510,7 @@ golang_install_dir: '/opt/go/{{ golang_version }}'
 golang_download_dir: "{{ x_ansible_download_dir | default(ansible_env.HOME + '/.ansible/tmp/downloads') }}"
 golang_gopath: "$HOME/go"
 
-nodejs_version: "17.x"
+nodejs_version: "18.x"
 nodejs_npm_global_packages:
   - name: yarn
   - name: meta
